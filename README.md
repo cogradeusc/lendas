@@ -18,10 +18,7 @@ Automatically transforms high-level specifications into production-ready, deploy
 Define data models in a concise, human-readable way.
 
 ### Automatic Schema Generation
-Automatically generates **PostgreSQL/PostGIS** schemas, including:
-* Tables and relationships.
-* Integrity constraints.
-* Optimized spatial and temporal indexes.
+Automatically generates **PostgreSQL/PostGIS** schemas, including: tables, relationships and integrity constraints.
 
 ---
 
