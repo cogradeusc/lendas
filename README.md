@@ -6,18 +6,18 @@ Environmental datasets are inherently complex, combining spatio-temporal observa
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 🏗️ Domain-Oriented Modeling
+### Domain-Oriented Modeling
 Aligned with **OGC/ISO Observations and Measurements (O&M)** standards, ensuring the model speaks the same language as environmental scientists.
 
-### ⚙️ Model-Driven Engineering (MDE)
+### Model-Driven Engineering (MDE)
 Automatically transforms high-level specifications into production-ready, deployable data structures.
 
-### 📝 YAML-based DSL
-Define data models in a concise, human-readable, and version-controlled format (ideal for Git workflows).
+### YAML-based DSL
+Define data models in a concise, human-readable way.
 
-### 🗄️ Automatic Schema Generation
+### Automatic Schema Generation
 Automatically generates **PostgreSQL/PostGIS** schemas, including:
 * Tables and relationships.
 * Integrity constraints.
@@ -25,19 +25,7 @@ Automatically generates **PostgreSQL/PostGIS** schemas, including:
 
 ---
 
-## 🛠️ Technical Capabilities
-
-| Area | Support & Functionalities |
-| :--- | :--- |
-| **Type System** | Built-in support for geospatial, temporal, and range types. |
-| **Flexibility** | User-defined types (enums and complex structures) and optional schemaless JSON support. |
-| **Complex Data** | Support for time series, profiles, trajectories, and raster-like coverage data. |
-| **Sampling** | Management of spatial and vertical sampling, specimens, and sampling methods. |
-| **Metadata** | Automatic generation of metadata catalogs aligned with **ISO** standards. |
-
----
-
-## 📊 Data Availability
+## Data Availability
 
 To reproduce the experiments undertaken during the evaluation of this framework, CSV files adapted to the schemas of all approaches may be provided upon request.
 
