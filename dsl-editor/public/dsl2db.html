@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LENDAS to DB</title>
+  <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@9.10.0/dist/jsoneditor.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .page-title {
+      letter-spacing: 0.02em;
+    }
+    
+    .app-card {
+      height: 100%;
+      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+      border: none;
+      transition: box-shadow 0.2s;
+    }
+    
+    .app-card:hover {
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    }
+    
+    .card-section {
+      min-height: 320px;
+      height: 400px;
+      max-height: 600px;
+    }
+    
+    .toggle-header {
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+      padding: 0.75rem 1rem;
+    }
+    
+    .toggle-header:hover {
+      background-color: rgba(0,0,0,.03);
+    }
+    
+    .toggle-icon {
+      font-size: 1.2em;
+    }
+    
+    #dsl-content-editor {
+      overflow: auto;
+    }
+    
+    #logs-section {
+      font-size: 0.97rem;
+      overflow-y: auto;
+    }
+    
+    .btn-connect {
+      margin-bottom: 2px;
+    }
+    
+    .section-icon {
+      margin-right: 0.5rem;
+    }
+    
+    .field-icon {
+      margin-right: 0.25rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="bg-primary text-white py-4 mb-3">
+    <div class="container text-center">
+      <h1 class="fw-bold mb-0 page-title">LENDAS to DB</h1>
+    </div>
+  </header>
+  
+  <div class="container-fluid mt-3">    
+    <div class="row gx-4 align-items-stretch">
+      <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card shadow-sm border-0 flex-fill d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-between h-100">
+            <div class="d-flex align-items-center mb-2">
+              <h2 class="card-title fs-5 mb-0 text-primary"><i class="bi bi-hdd-network section-icon"></i>Main Database</h2>
+            </div>
+            <form id="connect-form" autocomplete="off">
+              <div class="row g-2 align-items-end">
+                <div class="col-4">
+                  <label class="form-label small" for="db-host"><i class="bi bi-house-door field-icon"></i>Host</label>
+                  <input type="text" class="form-control" name="host" id="db-host" placeholder="Host" value="localhost" required>
+                </div>
+                <div class="col-2">
+                  <label class="form-label small" for="db-port"><i class="bi bi-plug field-icon"></i>Port</label>
+                  <input type="number" class="form-control" name="port" id="db-port" placeholder="Port" value="5432" required>
+                </div>
+                <div class="col-3">
+                  <label class="form-label small" for="db-user"><i class="bi bi-person field-icon"></i>User</label>
+                  <input type="text" class="form-control" name="user" id="db-user" placeholder="User" value="postgres" required>
+                </div>
+                <div class="col-3">
+                  <label class="form-label small" for="db-password"><i class="bi bi-key field-icon"></i>Password</label>
+                  <input type="password" class="form-control" name="password" id="db-password" placeholder="Password" value="postgres" required>
+                </div>
+              </div>
+              <div class="row g-2 mb-3">
+                <div class="col-6">
+                  <label class="form-label small" for="db-database"><i class="bi bi-database field-icon"></i>Database</label>
+                  <input type="text" class="form-control" name="database" id="db-database" placeholder="Database" value="postgres" required>
+                </div>
+                <div class="col-6 d-flex align-items-end">
+                  <button type="submit" class="btn btn-primary w-100 btn-connect"><i class="bi bi-box-arrow-in-right field-icon"></i>Connect</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card shadow-sm border-0 flex-fill d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-between h-100">
+            <div class="d-flex align-items-center mb-2">
+              <h2 class="card-title fs-5 mb-0 text-primary"><i class="bi bi-plus-circle section-icon"></i>Create New Database</h2>
+            </div>
+            <form id="createdb-form" autocomplete="off">
+              <div class="row g-2 align-items-end">
+                <div class="col-6">
+                  <label class="form-label small" for="db-createdb"><i class="bi bi-database-add field-icon"></i>Database Name</label>
+                  <input type="text" class="form-control" name="databaseName" id="db-createdb" required>
+                </div>
+              </div>
+              <div class="row g-2 mb-3">
+                <div class="col-6">
+                  <label class="form-label small" for="db-database"><i class="bi bi-repeat field-icon"></i></label>
+                  <button type="submit" class="btn btn-primary w-100" id="createdb-submit-btn" disabled><i class="bi bi-arrow-repeat field-icon"></i>Create or Load</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>     
+      <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card shadow-sm border-0 flex-fill d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-between h-100">
+            <div class="d-flex align-items-center mb-2">
+              <h2 class="card-title fs-5 mb-0 text-primary"><i class="bi bi-file-earmark-code section-icon"></i>Process DSL</h2>
+            </div>
+            <form id="processdsl-form" autocomplete="off">
+              <div>
+                <div class="col-6 mb-2">
+                  <button type="button" id="generate-structure-btn" class="btn btn-primary w-100" disabled><i class="bi bi-diagram-3 field-icon"></i>Generate Structure</button>
+                </div>
+                <div class="col-6 mb-2">
+                  <button type="button" id="deploy-dsl-btn" class="btn btn-success w-100" disabled><i class="bi bi-code-slash field-icon"></i>Deploy Model</button>
+                </div>
+                <div class="col-6 mb-2">
+                  <button type="button" id="undeploy-dsl-btn" class="btn btn-danger w-100" disabled><i class="bi bi-code-slash field-icon"></i>Undeploy Model</button>
+                </div>              
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4 align-items-stretch">      
+      <div class="col-md-8 d-flex align-items-stretch flex-column">
+        <div class="card shadow-sm border-0 flex-fill d-flex flex-column justify-content-between">
+          <div id="dsl-content-header" class="card-header d-flex align-items-center justify-content-between">
+            <h2 class="card-title fs-5 mb-0 text-primary"><i class="bi bi-file-earmark-code section-icon"></i> DSL Model (JSON)</h2>
+          </div>
+          <div id="dsl-content-editor" class="card-body flex-fill card-section"></div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-stretch flex-column">
+        <div class="card shadow-sm border-0 flex-fill d-flex flex-column justify-content-between">
+          <div id="logs-section-header" class="card-header d-flex align-items-center justify-content-between">
+            <h2 class="card-title fs-5 mb-0 text-primary"><i class="bi bi-terminal section-icon"></i> Logs</h2>
+            <button id="logs-clear-btn" class="btn btn-sm" type="button" title="Clear logs"><i class="bi bi-trash"></i></button>
+          </div>
+          <div id="logs-section" class="card-body flex-fill card-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsoneditor@9.10.0/dist/jsoneditor.min.js"></script>
+  <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+  <script src="js/dsl2db.js"></script>
+</body>
+
+</html>

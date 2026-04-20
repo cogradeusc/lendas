@@ -1,0 +1,2345 @@
+{
+  "schema": "observacion_aerea",
+  "complex_data_types": [
+    {
+      "name": "object_orientation",
+      "description": "Define la orientación de un objetos en espacio 3D",
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "yaw",
+              "description": "Yaw del objeto",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "pitch",
+              "description": "Pitch del objeto",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "roll",
+              "description": "Roll del objeto",
+              "data_type": "real",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vector",
+      "description": "Vector de coordenadas en 3D",
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "x",
+              "description": "Coordenada x del vector",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "y",
+              "description": "Coordenada y del vector",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "z",
+              "description": "Coordenada z del vector",
+              "data_type": "real",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quaternion",
+      "description": "Conjunto de cuatro elementos de un cuaternión",
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "quaternion0",
+              "description": "Elemento 0 del cuaternión.",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion1",
+              "description": "Elemento 1 del cuaternión.",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion2",
+              "description": "Elemento 2 del cuaternión.",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion3",
+              "description": "Elemento 3 del cuaternión.",
+              "data_type": "real",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "visible_image",
+      "description": "Tipo de dato para representar los metadatos de una imagen del rango visible",
+      "versions": [
+        {
+          "version": "1.0.9",
+          "fields": [
+            {
+              "name": "width",
+              "description": "Número de píxeles en la dimensión horizontal de la imagen",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "height",
+              "description": "Número de píxeles en la dimensións vertical de la imagen.",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "xresolution",
+              "description": "Resolucion en el eje X",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "yresolution",
+              "description": "Resolucion en el eje Y",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_location",
+              "description": "Localización de la cámara",
+              "data_type": "geometry(POINTZ,4326)",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_pan",
+              "description": "Pan en grados del gimbal con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_tilt",
+              "description": "Tilt en grados del gimb al con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_orientation",
+              "description": "Orientación de la camara",
+              "data_type": "object_orientation",
+              "repeated": false
+            },
+            {
+              "name": "field_of_view",
+              "description": "Field of view de la cámara en grados",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion",
+              "description": "Quaternion que define la orientación de la camara",
+              "data_type": "quaternion",
+              "repeated": false
+            },
+            {
+              "name": "vector_to",
+              "description": "Vector de apuntamiento(forward)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "vector_up",
+              "description": "Vector de apuntamiento(up)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "exposure_time",
+              "description": "Tiempo de exposición en segundos",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "white_balance_r",
+              "description": "Balance de blancos para el rojo",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "white_balance_g",
+              "description": "Balance de blancos para el verde",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "white_balance_b",
+              "description": "Balance de blancos para el azul",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gain",
+              "description": "Valor de la ganacia utilizado",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "aperture",
+              "description": "Valor de la apertura utilizado",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "focus",
+              "description": "Valor del focus utilizado",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "focal_length",
+              "description": "Valor del focal length utilizado",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "clasification0",
+              "description": "Clasification0",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "clasification1",
+              "description": "Clasification1",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "clasification2",
+              "description": "Clasification2",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "clasification3",
+              "description": "Clasification3",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "clasification4",
+              "description": "Clasification4",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "geo_footprint_center",
+              "description": "Centro de huella de la imagen sobre el terreno",
+              "data_type": "geometry(POINT,4326)",
+              "repeated": false
+            },
+            {
+              "name": "url",
+              "description": "URL desde la que descargar la imagen",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        },
+        {
+          "version": "2.0.0",
+          "fields": [
+            {
+              "name": "width",
+              "description": "Número de píxeles en la dimensión horizontal de la imagen",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "height",
+              "description": "Número de píxeles en la dimensións vertical de la imagen.",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "ground_sample_distance",
+              "description": "tamaño del pixel central en cm",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_location",
+              "description": "Localización de la cámara",
+              "data_type": "geometry(POINTZ,4326)",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_pan",
+              "description": "Pan en grados del gimbal con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_tilt",
+              "description": "Tilt en grados del gimb al con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_orientation",
+              "description": "Orientación de la camara",
+              "data_type": "object_orientation",
+              "repeated": false
+            },
+            {
+              "name": "field_of_view",
+              "description": "Field of view de la cámara en grados",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion",
+              "description": "Quaternion que define la orientación de la camara",
+              "data_type": "quaternion",
+              "repeated": false
+            },
+            {
+              "name": "vector_to",
+              "description": "Vector de apuntamiento(forward)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "vector_up",
+              "description": "Vector de apuntamiento(up)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "exposure_time",
+              "description": "Tiempo de exposición en segundos",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "white_balance_r",
+              "description": "Balance de blancos para el rojo",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "white_balance_g",
+              "description": "Balance de blancos para el verde",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "white_balance_b",
+              "description": "Balance de blancos para el azul",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gain",
+              "description": "Valor de la ganacia utilizado",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "aperture",
+              "description": "Valor de la apertura utilizado",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "focus",
+              "description": "Valor del focus utilizado",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "focal_length",
+              "description": "Valor del focal length utilizado",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "slant_range",
+              "description": "Distancia del gimbal al centro de la imagen",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "frame_labels",
+              "description": "Etiquetas de clasificación que se han seleccionado para el frame",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "frame_targets",
+              "description": "Objetos detectados en un frame de video extraído por el algoritmo embarcado de detección de targets",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "batea_number_plate",
+              "description": "Matricula de la batea en una misión de inspección acuícola",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "batea_knots_count",
+              "description": "Número de nudos contados en una batea",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "vessel_number_plate",
+              "description": "Matricula de un barco en una misión de vigilancia pesquera",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "fishing_gear",
+              "description": "Tipo de arte de pesca identificado en una embarcación",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "geo_footprint_center",
+              "description": "Centro de huella de la imagen sobre el terreno",
+              "data_type": "geometry(POINT,4326)",
+              "repeated": false
+            },
+            {
+              "name": "url",
+              "description": "URL desde la que descargar la imagen",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thermic_image",
+      "description": "Tipo de datos utilizado para representar los datos de una imagen térmica.",
+      "versions": [
+        {
+          "version": "1.0.9",
+          "fields": [
+            {
+              "name": "width",
+              "description": "Número de píxeles en la dimensión horizontal de la imagen",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "height",
+              "description": "Número de píxeles en la dimensións vertical de la imagen.",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "calibrationid",
+              "description": "0 for values between -40º to 120º and 1 for -40º to 550º",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "calibration_description",
+              "description": "Descripción del intervalo",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "calibration_range_max",
+              "description": "Valor umbral por encima del cual la cámara descarta",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "calibration_range_min",
+              "description": "Valor umbral por debajo del cual la cámara descarta",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "xresolution",
+              "description": "Resolucion en el eje X",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "yresolution",
+              "description": "Resolucion en el eje Y",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_location",
+              "description": "Localización de la cámara",
+              "data_type": "geometry(POINTZ,4326)",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_pan",
+              "description": "Pan en grados del gimbal con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_tilt",
+              "description": "Tilt en grados del gimb al con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_orientation",
+              "description": "Orientación de la camara",
+              "data_type": "object_orientation",
+              "repeated": false
+            },
+            {
+              "name": "field_of_view",
+              "description": "Field of view de la cámara en grados",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion",
+              "description": "Quaternion que define la orientación de la camara",
+              "data_type": "quaternion",
+              "repeated": false
+            },
+            {
+              "name": "vector_to",
+              "description": "Vector de apuntamiento(forward)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "vector_up",
+              "description": "Vector de apuntamiento(up)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "emissivity",
+              "description": "Emisividad del objeto",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "ambient_temperature",
+              "description": "Temperaturea ambiente",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "relative_humidity",
+              "description": "Humedad relativa",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "minimum_temperature",
+              "description": "Temperatura mínima",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "maximum_temperature",
+              "description": "Temperatura máxima",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "average_temperature",
+              "description": "Temperatura media",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "deviation_temperatura",
+              "description": "Desviacion estándar de la temperatura",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "distance_to_object",
+              "description": "Distancia al objeto",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "r",
+              "description": "r",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "b",
+              "description": "b",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "f",
+              "description": "f",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "o",
+              "description": "o",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "oint",
+              "description": "oint",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "object_emissivity",
+              "description": "Object emissivity factor",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "reflected_temperature",
+              "description": "Object reflected temperature",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "window_temperature",
+              "description": "External window temperature",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "atmospheric_temperature",
+              "description": "Atmospheric temperature",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "geo_footprint_center",
+              "description": "Centro de huella de la imagen sobre el terreno",
+              "data_type": "geometry(POINT,4326)",
+              "repeated": false
+            },
+            {
+              "name": "url",
+              "description": "URL desde la que descargar la imagen",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        },
+        {
+          "version": "2.0.0",
+          "fields": [
+            {
+              "name": "width",
+              "description": "Número de píxeles en la dimensión horizontal de la imagen",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "height",
+              "description": "Número de píxeles en la dimensións vertical de la imagen.",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "calibrationid",
+              "description": "0 for values between -40º to 175º, 1 for -20º to 250º and 2 for 175º to 1000º",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "calibration_description",
+              "description": "Descripción del intervalo",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "calibration_range_max",
+              "description": "Valor umbral por encima del cual la cámara descarta",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "calibration_range_min",
+              "description": "Valor umbral por debajo del cual la cámara descarta",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "ground_sample_distance",
+              "description": "tamaño del pixel central en cm",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_location",
+              "description": "Localización de la cámara",
+              "data_type": "geometry(POINTZ,4326)",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_pan",
+              "description": "Pan en grados del gimbal con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_tilt",
+              "description": "Tilt en grados del gimb al con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_orientation",
+              "description": "Orientación de la camara",
+              "data_type": "object_orientation",
+              "repeated": false
+            },
+            {
+              "name": "field_of_view",
+              "description": "Field of view de la cámara en grados",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion",
+              "description": "Quaternion que define la orientación de la camara",
+              "data_type": "quaternion",
+              "repeated": false
+            },
+            {
+              "name": "vector_to",
+              "description": "Vector de apuntamiento(forward)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "vector_up",
+              "description": "Vector de apuntamiento(up)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "emissivity",
+              "description": "Emisividad del objeto",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "ambient_temperature",
+              "description": "Temperaturea ambiente",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "relative_humidity",
+              "description": "Humedad relativa",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "minimum_temperature",
+              "description": "Temperatura mínima",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "maximum_temperature",
+              "description": "Temperatura máxima",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "average_temperature",
+              "description": "Temperatura media",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "deviation_temperatura",
+              "description": "Desviacion estándar de la temperatura",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "distance_to_object",
+              "description": "Distancia al objeto",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "temperature_resolution",
+              "description": "Representa el método de la conversión de ND a temperatura que se ha realizado (Low o High)",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "tau",
+              "description": "?",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "r",
+              "description": "Parámetro de calibración para la conversión de la señal corregida a temperatura en kelvin",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "b",
+              "description": "Parámetro de calibración para la conversión de la señal corregida a temperatura en kelvin",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "f",
+              "description": "Parámetro de calibración para la conversión de la señal corregida a temperatura en kelvin",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "J1",
+              "description": "Ganacia general",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "J0",
+              "description": "Offset general",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "o",
+              "description": "Offset general",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "oint",
+              "description": "Offset general",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "ext_optics_temp",
+              "description": "ext_optics_temp",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "transmission_ext_optics",
+              "description": "transmission_ext_optics",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "geo_footprint_center",
+              "description": "Centro de huella de la imagen sobre el terreno",
+              "data_type": "geometry(POINT,4326)",
+              "repeated": false
+            },
+            {
+              "name": "url",
+              "description": "URL desde la que descargar la imagen",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "multiespectral_channel_metadata",
+      "description": "Tipo de dato que representa los metadatos de un canal de una imagen multiespectral.",
+      "versions": [
+        {
+          "version": "2.0.0",
+          "fields": [
+            {
+              "name": "band",
+              "description": "Nombre de la banda [Blue, Green, Red, NIR, INDICE]",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "exposure_time",
+              "description": "Tiempo de exposición en segundos",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gain",
+              "description": "ganacia configurada en la cámara",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "depth_resolution",
+              "description": "Valor de la profundidad (rango dinámico del pixel)",
+              "data_type": "integer",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "multiespectral_image",
+      "description": "Data type used to represent the metadata of multiespectral images.",
+      "versions": [
+        {
+          "version": "1.0.9",
+          "fields": [
+            {
+              "name": "width",
+              "description": "Número de píxeles en la dimensión horizontal de la imagen",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "height",
+              "description": "Número de píxeles en la dimensións vertical de la imagen.",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "xresolution",
+              "description": "Resolucion en el eje X",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "yresolution",
+              "description": "Resolucion en el eje Y",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_location",
+              "description": "Localización de la cámara",
+              "data_type": "geometry(POINTZ,4326)",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_pan",
+              "description": "Pan en grados del gimbal con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_tilt",
+              "description": "Tilt en grados del gimb al con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_orientation",
+              "description": "Orientación de la camara",
+              "data_type": "object_orientation",
+              "repeated": false
+            },
+            {
+              "name": "field_of_view",
+              "description": "Field of view de la cámara en grados",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion",
+              "description": "Quaternion que define la orientación de la camara",
+              "data_type": "quaternion",
+              "repeated": false
+            },
+            {
+              "name": "vector_to",
+              "description": "Vector de apuntamiento(forward)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "vector_up",
+              "description": "Vector de apuntamiento(up)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "exposure_time0",
+              "description": "Tiempo de exposición en segundos para el canal 0",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "exposure_time1",
+              "description": "Tiempo de exposición en segundos para el canal 1",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "exposure_time2",
+              "description": "Tiempo de exposición en segundos para el canal 2",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "exposure_time3",
+              "description": "Tiempo de exposición en segundos para el canal 3",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "exposure_time4",
+              "description": "Tiempo de exposición en segundos para el canal 4",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "geo_footprint_center",
+              "description": "Centro de huella de la imagen sobre el terreno",
+              "data_type": "geometry(POINT,4326)",
+              "repeated": false
+            },
+            {
+              "name": "url",
+              "description": "URL desde la que descargar la imagen",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        },
+        {
+          "version": "2.0.0",
+          "fields": [
+            {
+              "name": "width",
+              "description": "Número de píxeles en la dimensión horizontal de la imagen",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "height",
+              "description": "Número de píxeles en la dimensións vertical de la imagen.",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "ground_sample_distance",
+              "description": "tamaño del pixel central en cm",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_location",
+              "description": "Localización de la cámara",
+              "data_type": "geometry(POINTZ,4326)",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_pan",
+              "description": "Pan en grados del gimbal con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "gimbal_tilt",
+              "description": "Tilt en grados del gimb al con respecto a la aeronave",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_orientation",
+              "description": "Orientación de la camara",
+              "data_type": "object_orientation",
+              "repeated": false
+            },
+            {
+              "name": "field_of_view",
+              "description": "Field of view de la cámara en grados",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion",
+              "description": "Quaternion que define la orientación de la camara",
+              "data_type": "quaternion",
+              "repeated": false
+            },
+            {
+              "name": "vector_to",
+              "description": "Vector de apuntamiento(forward)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "vector_up",
+              "description": "Vector de apuntamiento(up)",
+              "data_type": "vector",
+              "repeated": false
+            },
+            {
+              "name": "channel_metadata",
+              "description": "Metadatos de cada uno de los canales de la imagen",
+              "data_type": "multiespectral_channel_metadata",
+              "repeated": true
+            },
+            {
+              "name": "geo_footprint_center",
+              "description": "Centro de huella de la imagen sobre el terreno",
+              "data_type": "geometry(POINT,4326)",
+              "repeated": false
+            },
+            {
+              "name": "url",
+              "description": "URL desde la que descargar la imagen",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "video",
+      "description": "Tipo de datos utilizado para representar los metadatos de los videos.",
+      "versions": [
+        {
+          "version": "1.0.9",
+          "fields": [
+            {
+              "name": "url",
+              "description": "URL desde la que descargar el video",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        },
+        {
+          "version": "2.0.0",
+          "fields": [
+            {
+              "name": "url",
+              "description": "URL desde la que descargar el video",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "video_frame",
+      "description": "Tipo de datos para representar los metadatos de un frame de video",
+      "versions": [
+        {
+          "version": "1.0.9",
+          "fields": [
+            {
+              "name": "xresolution",
+              "description": "Resolucion en el eje X",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "yresolution",
+              "description": "Resolucion en el eje Y",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_location",
+              "description": "Localización de la cámara",
+              "data_type": "geometry(POINTZ,4326)",
+              "repeated": false
+            },
+            {
+              "name": "camera_orientation",
+              "description": "Orientación de la camara",
+              "data_type": "object_orientation",
+              "repeated": false
+            },
+            {
+              "name": "ground_speed",
+              "description": "Ground Speed",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "field_of_view",
+              "description": "Field of view de la cámara en grados",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion",
+              "description": "Quaternion que define la orientación de la camara",
+              "data_type": "quaternion",
+              "repeated": false
+            },
+            {
+              "name": "geo_footprint_center",
+              "description": "Centro de huella de la imagen sobre el terreno",
+              "data_type": "geometry(POINT,4326)",
+              "repeated": false
+            }
+          ]
+        },
+        {
+          "version": "2.0.0",
+          "fields": [
+            {
+              "name": "ground_sample_distance",
+              "description": "tamaño del pixel central en cm",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "camera_location",
+              "description": "Localización de la cámara",
+              "data_type": "geometry(POINTZ,4326)",
+              "repeated": false
+            },
+            {
+              "name": "camera_orientation",
+              "description": "Orientación de la camara",
+              "data_type": "object_orientation",
+              "repeated": false
+            },
+            {
+              "name": "ground_speed",
+              "description": "Ground Speed",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "field_of_view",
+              "description": "Field of view de la cámara en grados",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "quaternion",
+              "description": "Quaternion que define la orientación de la camara",
+              "data_type": "quaternion",
+              "repeated": false
+            },
+            {
+              "name": "geo_footprint_center",
+              "description": "Centro de huella de la imagen sobre el terreno",
+              "data_type": "geometry(POINT,4326)",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "point_cloud",
+      "description": "Tipo de datos para representar metadatos de nubes de puntos.",
+      "versions": [
+        {
+          "version": "1.0.9",
+          "fields": [
+            {
+              "name": "url",
+              "description": "URL desde la que descargar la nube de puntos",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        },
+        {
+          "version": "2.0.0",
+          "fields": [
+            {
+              "name": "url",
+              "description": "URL desde la que descargar la nube de puntos",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "feature_types": [
+    {
+      "name": "mision",
+      "description": "Entidad utilizada para referenciar a las misiones",
+      "properties": [
+        {
+          "name": "mss_mision_id",
+          "description": "identificador de la mision en la base de datos de misiones",
+          "data_type": "integer",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ]
+    },
+    {
+      "name": "aeronave",
+      "description": "Entidad utilizada para referenciar a las aeronaves como plataformas",
+      "properties": [
+        {
+          "name": "vehiculo_id",
+          "description": "Identificador del vehículo en la base de datos de plataformas",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ]
+    }
+  ],
+  "process_types": [
+    {
+      "name": "captura_imagen_visible",
+      "description": "Procesos de generación de imágenes visibles. Constan de una cámara, su configuración y el contexto de su uso.",
+      "properties": [
+        {
+          "name": "sensor",
+          "description": "Referencia externa al identificador del sensor que representa a la cámara.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "payload_id",
+          "description": "Identificador del payload usando en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "multisim_id",
+          "description": "Identificador del multisim utilizado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "ground_control_station_id",
+          "description": "Identificador de la estación base",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pc_embarcado_id",
+          "description": "Identificador del pc embarcado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "operator_name",
+          "description": "Nombre del operador del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pilot_name",
+          "description": "Nombre del piloto del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Imágenes del rango visible",
+      "abstract": "Este conjunto de imagenes se genera con cámaras del rango visible montadas en aeronaves para el apoyo a las misiones. No incluyue ráfagas.",
+      "identifier": "imagenes_visibles",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "visible"
+        },
+        {
+          "keyword": "imagen"
+        },
+        {
+          "keyword": "rgb"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "result_time",
+      "platform": {
+        "feature_type": "aeronave",
+        "scope": "valid_time_period"
+      },
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "mision"
+      },
+      "observed_properties": [
+        {
+          "name": "imagen",
+          "description": "Metadatos de la imagen",
+          "data_type": "visible_image",
+          "repeated": false,
+          "temporal_scope": "observation"
+        }
+      ]
+    },
+    {
+      "name": "captura_imagen_infrarroja",
+      "description": "Procesos de generación de imágenes térmicas. Constan de una cámara, su configuración y el contexto de su uso.",
+      "properties": [
+        {
+          "name": "sensor",
+          "description": "Referencia externa al identificador del sensor que representa a la cámara.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "payload_id",
+          "description": "Identificador del payload usando en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "multisim_id",
+          "description": "Identificador del multisim utilizado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "ground_control_station_id",
+          "description": "Identificador de la estación base",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pc_embarcado_id",
+          "description": "Identificador del pc embarcado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "operator_name",
+          "description": "Nombre del operador del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pilot_name",
+          "description": "Nombre del piloto del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Imágenes del rango infrarrojo",
+      "abstract": "Este conjunto de imagenes se genera con cámaras del rango infrarrojo montadas en aeronaves para el apoyo a las misiones. No incluyue ráfagas.",
+      "identifier": "imagenes_termicas",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "térmica"
+        },
+        {
+          "keyword": "imagen"
+        },
+        {
+          "keyword": "infrarroja"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "result_time",
+      "platform": {
+        "feature_type": "aeronave",
+        "scope": "valid_time_period"
+      },
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "mision"
+      },
+      "observed_properties": [
+        {
+          "name": "imagen",
+          "description": "Metadatos de la imagen",
+          "data_type": "thermic_image",
+          "repeated": false,
+          "temporal_scope": "observation"
+        }
+      ]
+    },
+    {
+      "name": "captura_imagen_multiespectral",
+      "description": "Procesos de generación de imágenes multiespectrales. Constan de una cámara, su configuración y el contexto de su uso.",
+      "properties": [
+        {
+          "name": "sensor",
+          "description": "Referencia externa al identificador del sensor que representa a la cámara.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "payload_id",
+          "description": "Identificador del payload usando en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "multisim_id",
+          "description": "Identificador del multisim utilizado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "ground_control_station_id",
+          "description": "Identificador de la estación base",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pc_embarcado_id",
+          "description": "Identificador del pc embarcado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "operator_name",
+          "description": "Nombre del operador del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pilot_name",
+          "description": "Nombre del piloto del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Imágenes del rango mulstiespectral",
+      "abstract": "Este conjunto de imagenes se genera con cámaras del rango multiespectral montadas en aeronaves para el apoyo a las misiones. No incluyue ráfagas.",
+      "identifier": "imagenes_multiespectrales",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "mulstiespectral"
+        },
+        {
+          "keyword": "imagen"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "result_time",
+      "platform": {
+        "feature_type": "aeronave",
+        "scope": "valid_time_period"
+      },
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "mision"
+      },
+      "observed_properties": [
+        {
+          "name": "imagen",
+          "description": "Metadatos de la imagen",
+          "data_type": "multiespectral_image",
+          "repeated": false,
+          "temporal_scope": "observation"
+        }
+      ]
+    },
+    {
+      "name": "captura_rafaga_visible",
+      "description": "Procesos de generación de ráfagas de imágenes visibles. Constan de una cámara, su configuración y el contexto de su uso.",
+      "properties": [
+        {
+          "name": "sensor",
+          "description": "Referencia externa al identificador del sensor que representa a la cámara.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "payload_id",
+          "description": "Identificador del payload usando en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "multisim_id",
+          "description": "Identificador del multisim utilizado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "ground_control_station_id",
+          "description": "Identificador de la estación base",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pc_embarcado_id",
+          "description": "Identificador del pc embarcado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "operator_name",
+          "description": "Nombre del operador del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pilot_name",
+          "description": "Nombre del piloto del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Ráfagas de imágenes del rango visible",
+      "abstract": "Este conjunto de ráfagas se genera con cámaras del rango visible montadas en aeronaves para el apoyo a las misiones. Solo incluye imágenes que son parte de ráfagas.",
+      "identifier": "rafagas_visibles",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "visible"
+        },
+        {
+          "keyword": "ráfaga"
+        },
+        {
+          "keyword": "imagen"
+        },
+        {
+          "keyword": "rgb"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "period",
+      "phenomenon_time_type": "result_time",
+      "platform": {
+        "feature_type": "aeronave",
+        "scope": "valid_time_period"
+      },
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "mision"
+      },
+      "observed_properties": [
+        {
+          "name": "imagen",
+          "description": "Metadatos de la imagen",
+          "data_type": "visible_image",
+          "repeated": false,
+          "sampling_time_type": "instant",
+          "temporal_scope": "discrete_coverage",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "sample"
+        }
+      ]
+    },
+    {
+      "name": "captura_rafaga_infrarroja",
+      "description": "Procesos de generación de ráfagas de imágenes infrarrojas. Constan de una cámara, su configuración y el contexto de su uso.",
+      "properties": [
+        {
+          "name": "sensor",
+          "description": "Referencia externa al identificador del sensor que representa a la cámara.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "payload_id",
+          "description": "Identificador del payload usando en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "multisim_id",
+          "description": "Identificador del multisim utilizado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "ground_control_station_id",
+          "description": "Identificador de la estación base",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pc_embarcado_id",
+          "description": "Identificador del pc embarcado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "operator_name",
+          "description": "Nombre del operador del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pilot_name",
+          "description": "Nombre del piloto del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Ráfagas de imágenes del rango infrarrojo",
+      "abstract": "Este conjunto de ráfagas se genera con cámaras del rango infrarrojo montadas en aeronaves para el apoyo a las misiones. Solo incluye imágenes que son parte de ráfagas.",
+      "identifier": "rafagas_infrarrojas",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "infrarrojo"
+        },
+        {
+          "keyword": "ráfaga"
+        },
+        {
+          "keyword": "imagen"
+        },
+        {
+          "keyword": "térmica"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "period",
+      "phenomenon_time_type": "result_time",
+      "platform": {
+        "feature_type": "aeronave",
+        "scope": "valid_time_period"
+      },
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "mision"
+      },
+      "observed_properties": [
+        {
+          "name": "imagen",
+          "description": "Metadatos de la imagen",
+          "data_type": "thermic_image",
+          "repeated": false,
+          "sampling_time_type": "instant",
+          "temporal_scope": "discrete_coverage",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "sample"
+        }
+      ]
+    },
+    {
+      "name": "captura_rafaga_multiespectral",
+      "description": "Procesos de generación de ráfagas de imágenes mulstiespectrales. Constan de una cámara, su configuración y el contexto de su uso.",
+      "properties": [
+        {
+          "name": "sensor",
+          "description": "Referencia externa al identificador del sensor que representa a la cámara.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "payload_id",
+          "description": "Identificador del payload usando en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "multisim_id",
+          "description": "Identificador del multisim utilizado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "ground_control_station_id",
+          "description": "Identificador de la estación base",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pc_embarcado_id",
+          "description": "Identificador del pc embarcado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "operator_name",
+          "description": "Nombre del operador del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pilot_name",
+          "description": "Nombre del piloto del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Ráfagas de imágenes del rango multiespectral",
+      "abstract": "Este conjunto de ráfagas se genera con cámaras del rango mulstiespectral montadas en aeronaves para el apoyo a las misiones. Solo incluye imágenes que son parte de ráfagas.",
+      "identifier": "rafagas_multiespectrales",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "multiespectral"
+        },
+        {
+          "keyword": "ráfaga"
+        },
+        {
+          "keyword": "imagen"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "period",
+      "phenomenon_time_type": "result_time",
+      "platform": {
+        "feature_type": "aeronave",
+        "scope": "valid_time_period"
+      },
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "mision"
+      },
+      "observed_properties": [
+        {
+          "name": "imagen",
+          "description": "Metadatos de la imagen",
+          "data_type": "multiespectral_image",
+          "repeated": false,
+          "sampling_time_type": "instant",
+          "temporal_scope": "discrete_coverage",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "sample"
+        }
+      ]
+    },
+    {
+      "name": "captura_video",
+      "description": "Procesos de generación de videos. Constan de una cámara, su configuración y el contexto de su uso.",
+      "properties": [
+        {
+          "name": "sensor",
+          "description": "Referencia externa al identificador del sensor que representa a la cámara.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "payload_id",
+          "description": "Identificador del payload usando en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "multisim_id",
+          "description": "Identificador del multisim utilizado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "ground_control_station_id",
+          "description": "Identificador de la estación base",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pc_embarcado_id",
+          "description": "Identificador del pc embarcado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "operator_name",
+          "description": "Nombre del operador del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pilot_name",
+          "description": "Nombre del piloto del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Videos",
+      "abstract": "Este conjunto de videos se genera con cámaras montadas en aeronaves para el apoyo a las misiones.",
+      "identifier": "videos",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "video"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "period",
+      "phenomenon_time_type": "result_time",
+      "platform": {
+        "feature_type": "aeronave",
+        "scope": "valid_time_period"
+      },
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "mision"
+      },
+      "observed_properties": [
+        {
+          "name": "video",
+          "description": "Metadatos del video",
+          "data_type": "video",
+          "repeated": false,
+          "temporal_scope": "observation"
+        },
+        {
+          "name": "frame",
+          "description": "Metadatos de un frame de video",
+          "data_type": "video_frame",
+          "repeated": false,
+          "temporal_scope": "discrete_coverage",
+          "sampling_time_type": "instant",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "sample"
+        }
+      ]
+    },
+    {
+      "name": "captura_lidar",
+      "description": "Procesos de generación de nubes de puntos lidar. Constan de un sensor, su configuración y el contexto de su uso.",
+      "properties": [
+        {
+          "name": "sensor",
+          "description": "Referencia externa al identificador del sensor que representa al dispositivo lidar.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "payload_id",
+          "description": "Identificador del payload usando en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "multisim_id",
+          "description": "Identificador del multisim utilizado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "ground_control_station_id",
+          "description": "Identificador de la estación base",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pc_embarcado_id",
+          "description": "Identificador del pc embarcado en el vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "operator_name",
+          "description": "Nombre del operador del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "pilot_name",
+          "description": "Nombre del piloto del vuelo",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Videos",
+      "abstract": "Este conjunto de nubes de puntos se genera con dispositivos lidar montados en aeronaves para el apoyo a las misiones.",
+      "identifier": "nubes_puntos",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "video"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "vector",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "period",
+      "phenomenon_time_type": "result_time",
+      "platform": {
+        "feature_type": "aeronave",
+        "scope": "valid_time_period"
+      },
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "mision"
+      },
+      "observed_properties": [
+        {
+          "name": "nube_puntos",
+          "description": "Metadatos de la nube de puntos",
+          "data_type": "point_cloud",
+          "repeated": false,
+          "temporal_scope": "observation"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LENDAS Editor</title>
+  <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/github.min.css" />    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+  
+    <div class="editor-header d-flex justify-content-between align-items-center bg-light">
+      <div>
+        <button class="btn btn-primary me-2" id="btnGenerateJSONHeader">
+          <i class="bi bi-save me-1"></i>Save Model
+        </button>
+        <button class="btn btn-outline-primary me-2" id="btnLoadJSONHeader">
+          <i class="bi bi-folder2-open me-1"></i>Load Model
+        </button>
+        <button class="btn btn-outline-danger me-2" id="btnCleanModel">
+          <i class="bi bi-trash me-1"></i>Clean Model
+        </button>
+        <button class="btn btn-outline-success me-2" id="btnApplyDSL">
+          <i class="bi bi-lightning-charge me-1"></i>Deploy Model
+        </button>        
+      </div>
+      <div class="fw-bold d-flex align-items-center">
+        <i class="bi bi-code-square me-2 fs-4"></i>
+        <h3 class="mb-0">LENDAS Editor</h3>
+        <span id="saveIndicator" class="ms-3 text-muted" style="font-size: 0.85rem; transition: opacity 0.3s;">
+          <i class="bi bi-check-circle-fill text-success"></i> Saved
+        </span>
+      </div>
+    </div>   
+    
+    <div class="editor-content d-flex" id="editorContent">
+      
+      <!-- Left panel (catalog) with toggle button -->
+      <div class="catalog-toggle-wrapper">
+        <!-- Toggle Button for left panel -->
+        <button class="panel-toggle-btn catalog-toggle-btn" id="btnToggleLeftPanel" title="Hide panel">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        
+        <!-- Left panel content -->
+        <div class="left-panel p-3 border-end" style="width: 350px;" id="leftPanel">
+          <h5 class="d-flex align-items-center mb-4"><i class="bi bi-grid-3x3-gap-fill me-2"></i>Element Catalog</h5>
+
+          <div class="card mb-3 shadow-sm">
+            <div class="card-header bg-light">
+              <label for="schemaName" class="form-label mb-0"><i class="bi bi-database me-2"></i><strong>Schema Name</strong></label>
+            </div>
+            <div class="card-body">
+              <input type="text" id="schemaName" class="form-control" placeholder="Schema name" value="default_schema" />
+            </div>
+          </div>
+
+          <div class="accordion" id="catalogAccordion">
+            <!-- Vocabularies -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVocabularies" aria-expanded="true" aria-controls="collapseVocabularies">
+                  <i class="bi bi-book me-2"></i>Vocabularies
+                </button>
+              </h2>
+              <div id="collapseVocabularies" class="accordion-collapse collapse show" data-bs-parent="#catalogAccordion">
+                <div class="accordion-body p-2">
+                  <div id="vocabulariesList" class="catalog-list mb-2"></div>
+                  <button class="btn btn-sm btn-outline-primary w-100" id="btnAddVocabulary">
+                    <i class="bi bi-plus-circle me-1"></i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Enumeration Data Types -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnums" aria-expanded="false" aria-controls="collapseEnums">
+                  <i class="bi bi-list-ul me-2"></i>Enumeration Data Types
+                </button>
+              </h2>
+              <div id="collapseEnums" class="accordion-collapse collapse" data-bs-parent="#catalogAccordion">
+                <div class="accordion-body p-2">
+                  <div id="enumerationDataTypesList" class="catalog-list mb-2"></div>
+                  <button class="btn btn-sm btn-outline-primary w-100" id="btnAddEnumerationDataType">
+                    <i class="bi bi-plus-circle me-1"></i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Complex Data Types -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComplex" aria-expanded="false" aria-controls="collapseComplex">
+                  <i class="bi bi-box me-2"></i>Complex Data Types
+                </button>
+              </h2>
+              <div id="collapseComplex" class="accordion-collapse collapse" data-bs-parent="#catalogAccordion">
+                <div class="accordion-body p-2">
+                  <div id="complexTypesList" class="catalog-list mb-2"></div>
+                  <button class="btn btn-sm btn-outline-primary w-100" id="btnAddComplexDataType">
+                    <i class="bi bi-plus-circle me-1"></i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Feature Types -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeature" aria-expanded="false" aria-controls="collapseFeature">
+                  <i class="bi bi-geo-alt me-2"></i>Feature Types
+                </button>
+              </h2>
+              <div id="collapseFeature" class="accordion-collapse collapse" data-bs-parent="#catalogAccordion">
+                <div class="accordion-body p-2">
+                  <div id="featureTypesList" class="catalog-list mb-2"></div>
+                  <button class="btn btn-sm btn-outline-primary w-100" id="btnAddFeatureType">
+                    <i class="bi bi-plus-circle me-1"></i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Spatial Sampling Feature Types -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpatial" aria-expanded="false" aria-controls="collapseSpatial">
+                  <i class="bi bi-geo me-2"></i>Spatial Sampling Features
+                </button>
+              </h2>
+              <div id="collapseSpatial" class="accordion-collapse collapse" data-bs-parent="#catalogAccordion">
+                <div class="accordion-body p-2">
+                  <div id="spatialSamplingFeatureTypesList" class="catalog-list mb-2"></div>
+                  <button class="btn btn-sm btn-outline-primary w-100" id="btnAddSpatialSamplingFeatureType">
+                    <i class="bi bi-plus-circle me-1"></i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Specimen Feature Types -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpecimen" aria-expanded="false" aria-controls="collapseSpecimen">
+                  <i class="bi bi-collection me-2"></i>Specimen Feature Types
+                </button>
+              </h2>
+              <div id="collapseSpecimen" class="accordion-collapse collapse" data-bs-parent="#catalogAccordion">
+                <div class="accordion-body p-2">
+                  <div id="specimenFeatureTypesList" class="catalog-list mb-2"></div>
+                  <button class="btn btn-sm btn-outline-primary w-100" id="btnAddSpecimenFeatureType">
+                    <i class="bi bi-plus-circle me-1"></i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Process Types -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProcess" aria-expanded="false" aria-controls="collapseProcess">
+                  <i class="bi bi-gear-wide-connected me-2"></i>Process Types
+                </button>
+              </h2>
+              <div id="collapseProcess" class="accordion-collapse collapse" data-bs-parent="#catalogAccordion">
+                <div class="accordion-body p-2">
+                  <div id="processTypesList" class="catalog-list mb-2"></div>
+                  <button class="btn btn-sm btn-outline-primary w-100" id="btnAddProcessType">
+                    <i class="bi bi-plus-circle me-1"></i>Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resizer for the left panel -->
+      <div class="resizer" id="leftResizer"></div>
+
+      <!-- Diagram wrapper -->
+      <div id="diagramWrapper" style="position: relative; flex: 1;">
+        <div id="drawflow" class="drawflow-container flex-grow-1" style="background-color: #f8f9fa;">
+          <!-- JointJS diagram will be rendered here -->
+        </div>
+        <!-- Zoom and Center Controls -->
+        <div class="zoom-controls shadow-sm">
+          <button class="btn btn-light border" id="btnCenterOverlay" title="Center">
+            <i class="bi bi-grid-fill"></i>
+          </button>
+          <button class="btn btn-light border" id="btnZoomInOverlay" title="Zoom In">
+            <i class="bi bi-zoom-in"></i>
+          </button>
+          <button class="btn btn-light border" id="btnZoomResetOverlay" title="Reset Zoom">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button class="btn btn-light border" id="btnZoomOutOverlay" title="Zoom Out">
+            <i class="bi bi-zoom-out"></i>
+          </button>          
+        </div>
+      </div>
+
+      <!-- Resizer for the right panel -->
+      <div class="resizer" id="rightResizer"></div>
+
+      <!-- Right panel (properties) with toggle button outside -->
+      <div class="properties-toggle-wrapper">
+        <!-- Toggle Button positioned outside the panel -->
+        <button class="panel-toggle-btn properties-toggle-btn" id="btnToggleRightPanel" title="Hide panel">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+        
+        <!-- Right panel content -->
+        <div class="right-panel p-3 border-start" style="width: 420px;" id="rightPanel">
+          <div class="mb-3">
+            <h5 class="mb-0 d-flex align-items-center"><i class="bi bi-gear me-2"></i>Properties</h5>
+          </div>
+          <div class="card shadow-sm properties-card" id="node-properties-container">
+            <div class="card-body p-0" id="node-properties">
+              <div class="text-center p-4 text-muted">
+                <i class="bi bi-cursor-fill mb-3 display-4"></i>
+                <p>Select a node to see its properties</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="editor-footer d-flex justify-content-between p-2 border-top bg-light">
+      <div>        
+        <button class="btn btn-outline-dark me-1" id="btnExportImage">
+          <i class="bi bi-image me-1"></i>Export Image
+        </button>
+        <button class="btn btn-outline-dark me-1" id="btnExportJSON">
+          <i class="bi bi-download me-1"></i>Save Diagram
+        </button>
+        <button class="btn btn-outline-dark me-1" id="btnImportJSON">
+          <i class="bi bi-upload me-1"></i>Load Diagram
+        </button>
+        <button class="btn btn-outline-danger ms-2" id="btnCleanDiagram">
+          <i class="bi bi-x-circle me-1"></i>Clean Diagram
+        </button>
+        <input type="file" id="fileImportJSON" style="display:none" accept=".json" />        
+      </div>
+      <div id="statusMessage" class="text-muted d-flex align-items-center">
+        <i class="bi bi-info-circle me-1"></i>
+        <span>Ready</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Vocabulary -->
+  <div class="modal fade" id="modalVocabulary" tabindex="-1" aria-labelledby="modalVocabularyLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalVocabularyLabel"><i class="bi bi-book me-2"></i>Edit Vocabulary</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="vocabularyEditorContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Enumeration Data Type -->
+  <div class="modal fade" id="modalEnumeration" tabindex="-1" aria-labelledby="modalEnumerationLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalEnumerationLabel"><i class="bi bi-list-ul me-2"></i>Edit Enumeration Data Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="enumerationEditorContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Complex Data Type -->
+  <div class="modal fade" id="modalCDT" tabindex="-1" aria-labelledby="modalCDTLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalCDTLabel"><i class="bi bi-box me-2"></i>Edit Complex Data Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cdtEditorContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Feature Type-->
+  <div class="modal fade" id="modalFeature" tabindex="-1" aria-labelledby="modalFeatureLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalFeatureLabel"><i class="bi bi-geo-alt me-2"></i>Edit Feature Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="featureEditorContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Spatial Sampling Feature Type -->
+  <div class="modal fade" id="modalSpatialSampling" tabindex="-1" aria-labelledby="modalSpatialSamplingLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalSpatialSamplingLabel"><i class="bi bi-geo me-2"></i>Edit Spatial Sampling Feature Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="spatialSamplingEditorContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Specimen Feature Type-->
+  <div class="modal fade" id="modalSpecimen" tabindex="-1" aria-labelledby="modalSpecimenLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalSpecimenLabel"><i class="bi bi-collection me-2"></i>Edit Specimen Feature Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="specimenEditorContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Process Type-->
+  <div class="modal fade" id="modalProcess" tabindex="-1" aria-labelledby="modalProcessLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalProcessLabel"><i class="bi bi-gear-wide-connected me-2"></i>Edit Process Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="processEditorContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Data Type Help -->
+  <div class="modal fade modal-backdrop-gray" id="modalDataTypeHelp" tabindex="-1" aria-labelledby="modalDataTypeHelpLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalDataTypeHelpLabel"><i class="bi bi-question-circle me-2"></i>Data Type Help</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="card mb-3">
+            <div class="card-header bg-light">
+              <h6 class="mb-0">Primitive Data Types</h6>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Integer</strong></li>
+                <li class="list-group-item"><strong>Real</strong></li>
+                <li class="list-group-item"><strong>Text</strong></li>
+                <li class="list-group-item"><strong>Bytea</strong></li>
+                <li class="list-group-item"><strong>Date</strong></li>
+                <li class="list-group-item"><strong>Timestamp</strong> (implemented as <em>timestamp with time zone</em>)</li>
+                <li class="list-group-item"><strong>Time</strong> (implemented as <em>time with time zone</em>)</li>
+                <li class="list-group-item"><strong>Interval</strong></li>
+                <li class="list-group-item"><strong>Boolean</strong></li>
+                <li class="list-group-item"><strong>Geometry</strong></li>
+                <li class="list-group-item"><strong>Geometry (tipoGeometrico, SRC)</strong> (a parameterized type)</li>
+                <li class="list-group-item"><strong>Intrange</strong> (implemented as <em>int8range</em>)</li>
+                <li class="list-group-item"><strong>Intmultirange</strong> (implemented as <em>int8multirange</em>)</li>
+                <li class="list-group-item"><strong>Numrange</strong></li>
+                <li class="list-group-item"><strong>Nummultirange</strong></li>
+                <li class="list-group-item"><strong>Tsrange</strong> (implemented as <em>tstzrange</em>)</li>
+                <li class="list-group-item"><strong>Tsmultirange</strong> (implemented as <em>tstzmultirange</em>)</li>
+                <li class="list-group-item"><strong>Daterange</strong></li>
+                <li class="list-group-item"><strong>Measure</strong></li>
+                <li class="list-group-item"><strong>Measure(unidadeMedida)</strong> (a parameterized type; the unit can be any string referencing a unit—e.g., "ºC". When not specified, each value must include both the measure and the unit.)</li>                
+                <li class="list-group-item"><strong>Category</strong></li>
+                <li class="list-group-item"><strong>Category(vocabulario)</strong> (a parameterized type where the parameter references a vocabulary from the current or another schema. When not specified, values must include both the term and the vocabulary.)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="alert alert-info">
+            <i class="bi bi-info-circle me-2"></i>
+            Additionally, besides the above, in the Data Type field you can use any enumerated or complex data type defined by the user in the current schema or in another schema already created in the same database. To reference another schema, use the notation <code>schema.data_type</code>.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal JSON Preview -->
+  <div class="modal fade" id="modalJSONPreview" tabindex="-1" aria-labelledby="modalJSONPreviewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalJSONPreviewLabel"><i class="bi bi-code-square me-2"></i>JSON Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <pre><code id="jsonContent" class="json"></code></pre>
+        </div>
+        <div class="modal-footer">
+          <div class="input-group me-2">
+            <span class="input-group-text"><i class="bi bi-file-earmark-text"></i></span>
+            <input type="text" id="jsonFilename" class="form-control" placeholder="model.json" />
+          </div>
+          <button type="button" class="btn btn-success" id="btnDownloadJSONModal">
+            <i class="bi bi-download me-1"></i>Download JSON
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Notification -->
+  <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="notificationModalLabel"><i class="bi bi-bell me-2"></i>Notification</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info mb-0">
+            <i class="bi bi-info-circle me-2"></i>
+            <span id="notificationMessage"></span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Confirmation -->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="confirmationModalLabel"><i class="bi bi-exclamation-triangle me-2"></i>Confirm</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-warning">
+            <i class="bi bi-exclamation-circle me-2"></i>
+            <span id="confirmationMessage"></span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="btnConfirmAction">
+            <i class="bi bi-check-circle me-1"></i>Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Exporting as Image (JPG/PNG/SVG) -->
+  <div class="modal fade" id="modalExportImage" tabindex="-1" aria-labelledby="modalExportImageLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalExportImageLabel"><i class="bi bi-image me-2"></i>Export Diagram as Image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="exportImageFilename" class="form-label">
+              <i class="bi bi-file-earmark me-1"></i>File Name
+            </label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-tag"></i></span>
+              <input type="text" class="form-control" id="exportImageFilename" value="diagram" />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exportImageFormat" class="form-label">
+              <i class="bi bi-filetype-png me-1"></i>Format
+            </label>
+            <select class="form-select" id="exportImageFormat">
+              <option value="png">PNG</option>
+              <option value="jpg">JPG</option>
+              <option value="svg">SVG</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id="btnSaveExportImage">
+            <i class="bi bi-download me-1"></i>Save
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Load Model -->
+  <div class="modal fade" id="modalLoadModel" tabindex="-1" aria-labelledby="modalLoadModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" id="modalLoadModelLabel"><i class="bi bi-upload me-2"></i>Load Model</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="card">
+            <div class="card-header bg-light">
+              <h6 class="mb-0"><i class="bi bi-file-earmark-arrow-up me-2"></i>Load Model from File</h6>
+            </div>
+            <div class="card-body text-center">
+              <div class="mb-3 text-start">
+                <label for="fileImportModel" class="form-label">Select a JSON file</label>
+                <input type="file" id="fileImportModel" class="form-control" accept=".json" />
+                <div class="form-text">The file will be validated against the schema before loading.</div>
+              </div>
+              <div id="loadModelStatus" class="d-none mb-3">
+                <div class="d-flex align-items-center justify-content-center">
+                  <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+                  <span class="text-muted">Validating model...</span>
+                </div>
+              </div>
+              <button id="btnLoadModelFile" class="btn btn-primary" disabled>
+                <i class="bi bi-folder-open me-1"></i>Load Model
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Validation Result -->
+  <div class="modal fade" id="modalValidationResult" tabindex="-1" aria-labelledby="modalValidationResultLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalValidationResultLabel">Validation Result</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="validationResultMessage" class="mb-2"></div>
+          <ul id="validationResultDetails" class="list-group validation-error-list"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/@joint/core@4.0.1/dist/joint.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+ 
+  <script src="js/util/handler-notification.js"></script>
+
+  <script src="js/model-editor/editor-vocabulary.js"></script>
+  <script src="js/model-editor/editor-enumeration.js"></script>
+  <script src="js/model-editor/editor-cdt.js"></script>
+  <script src="js/model-editor/editor-feature.js"></script>
+  <script src="js/model-editor/editor-spatial-sampling.js"></script>
+  <script src="js/model-editor/editor-specimen.js"></script>
+  <script src="js/model-editor/editor-process.js"></script>
+
+  <script src="js/util/export-import.js"></script>
+  <script src="js/util/json-generator.js"></script>
+  <script src="js/util/storage-manager.js"></script>  
+  <script src="js/util/panel-resizers.js"></script>
+
+  <script src="js/model-editor/catalog-editor.js"></script>  
+  
+  
+  <script src="js/diagram-editor/shapes/diagram-shapes.js"></script>
+  <script src="js/diagram-editor/shapes/diagram-vocabulary.js"></script>
+  <script src="js/diagram-editor/shapes/diagram-enumeration.js"></script>
+  <script src="js/diagram-editor/shapes/diagram-cdt.js"></script>
+  <script src="js/diagram-editor/shapes/diagram-feature.js"></script>
+  <script src="js/diagram-editor/shapes/diagram-spatial-sampling.js"></script>
+  <script src="js/diagram-editor/shapes/diagram-specimen.js"></script>
+  <script src="js/diagram-editor/shapes/diagram-process.js"></script>
+  
+  <script src="js/diagram-editor/diagram-utils.js"></script>  
+  <script src="js/diagram-editor/diagram-editor.js"></script>    
+  
+  <script src="js/export-image.js"></script>
+  <script src="js/main.js"></script>
+  
+</body>
+
+</html>

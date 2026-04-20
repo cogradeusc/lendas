@@ -1,0 +1,294 @@
+{
+  "schema": "powerline_analysis",
+  "complex_data_types": [
+    {
+      "name": "powerline_tower",
+      "description": "Metadatos de una torre de una línea eléctrica.",
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "location",
+              "description": "Localización geográfica de la torre.",
+              "data_type": "Geometry(POINT, 25829)",
+              "repeated": false
+            },
+            {
+              "name": "height",
+              "description": "Altura de la torre.",
+              "data_type": "real",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "powerline_conflict",
+      "description": "Conflicto detectado durante el análisis de la línea eléctrica.",
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "alert_level",
+              "description": "Nivel de alerta detectado en el conflicto.",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "location",
+              "description": "Localización geográfica del objeto detectado.",
+              "data_type": "Geometry(POINT, 25829)",
+              "repeated": false
+            },
+            {
+              "name": "distance",
+              "description": "Distancia desde la línea al objeto detectado.",
+              "data_type": "real",
+              "repeated": false
+            },
+            {
+              "name": "detected_object_type",
+              "description": "Tipo de objeto detectado.",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "impact",
+              "description": "Verdadero si la probabilidad de impacto supera un cierto umbral.",
+              "data_type": "boolean",
+              "repeated": false
+            },
+            {
+              "name": "line_height",
+              "description": "Altura de la línea eléctrica en el punto más cercano al objeto detectado.",
+              "data_type": "real",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "process_types": [
+    {
+      "name": "powerline_video_analysis",
+      "description": "Proceso que analiza vídeos de líneas eléctricas para etiquetar momentos concretos.",
+      "properties": [
+        {
+          "name": "Algoritmo",
+          "description": "Descripción textual del algoritmo utilizado para el análisis del video",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ],
+      "references": [
+        {
+          "name": "proceso_entrada",
+          "description": "Referencia al proceso de captura de video que proporciona los vídeos de entrada para este proceso.",
+          "referenced_type": "observacion_aerea.captura_video",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Momentos extraídos del análisis de videos de líneas eléctricas.",
+      "abstract": "Este conjunto de datos contiene momentos extraídos de vídeos de líneas eléctricas que han sido etiquetados por un procesos de análisis de esos vídeos.",
+      "identifier": "powerline_video_analysis",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "powerline"
+        },
+        {
+          "keyword": "línea eléctrica"
+        },
+        {
+          "keyword": "video"
+        }
+      ],
+      "specific_usage": "Análisis de los problemas detectados en líneas eléctricas.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "vector",
+      "spatial_resolution": [
+        0.01
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "structure"
+      ],
+      "result_time_type": "period",
+      "phenomenon_time_type": "period",
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "observacion_aerea.mision"
+      },
+      "observed_properties": [
+        {
+          "name": "video_moment",
+          "description": "Etiqueta vinculada a un momento dentro del vídeo.",
+          "data_type": "text",
+          "repeated": false,
+          "temporal_scope": "discrete_coverage",
+          "sampling_time_type": "period"
+        }
+      ]
+    },
+    {
+      "name": "powerline_point_cloud_analysis",
+      "description": "Proceso que analiza nubes de puntos sobre líneas eléctricas para detectar torres y posibles conflictos.",
+      "properties": [
+        {
+          "name": "Algoritmo",
+          "description": "Descripción textual del algoritmo utilizado para el análisis de las nubes de puntos.",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "tower_power",
+          "description": "Potencia de las torres de la línea electrica.",
+          "data_type": "real",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "tower_type",
+          "description": "Tipo de las torres de la línea eléctrica (altatension, mediatension, etc.)",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ],
+      "references": [
+        {
+          "name": "proceso_entrada",
+          "description": "Referencia al proceso de captura de lidar que proporciona las nubes de puntos de entrada para este proceso.",
+          "referenced_type": "observacion_aerea.captura_lidar",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Resultados del análisis de lineas de puntos de líneas eléctricas.",
+      "abstract": "Este conjunto de datos contiene los resultados de los procesos de análisis de nubes de puntos de líneas eléctricas. Incluye torres eléctricas detectadas y recortes de zonas de posibles conflictos.",
+      "identifier": "powerline_point_cloud_analysis",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "powerline"
+        },
+        {
+          "keyword": "línea eléctrica"
+        },
+        {
+          "keyword": "nube puntos"
+        },
+        {
+          "keyword": "torre alta tensión"
+        },
+        {
+          "keyword": "lidar"
+        }
+      ],
+      "specific_usage": "Análisis de los problemas detectados en líneas eléctricas.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "vector",
+      "spatial_resolution": [
+        0.01
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "structure"
+      ],
+      "result_time_type": "period",
+      "phenomenon_time_type": "period",
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "observacion_aerea.mision"
+      },
+      "observed_properties": [
+        {
+          "name": "towers",
+          "description": "Conjunto de torres de alta tension detectadas.",
+          "data_type": "powerline_tower",
+          "repeated": true,
+          "temporal_scope": "observation"
+        },
+        {
+          "name": "nube_puntos",
+          "description": "Recorte de una nube de puntos.",
+          "data_type": "observacion_aerea.point_cloud",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "discrete_coverage",
+          "sampling_geometry_type": "surface"
+        },
+        {
+          "name": "conflictos",
+          "description": "Conjunto de conflictos detectados",
+          "data_type": "powerline_conflict",
+          "repeated": true,
+          "temporal_scope": "observation",
+          "geospatial_scope": "discrete_coverage",
+          "sampling_geometry_type": "surface"
+        }
+      ]
+    }
+  ]
+}

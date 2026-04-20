@@ -1,0 +1,490 @@
+{
+  "schema": "schema1",
+  "vocabularies": [
+    {
+      "name": "vocabulary1",
+      "description": "description of the first vocabulary",
+      "date": "2023-01-23T00:00:00.000Z",
+      "date_type": "publication",
+      "language": "spa"
+    },
+    {
+      "name": "vocabulary2",
+      "description": "description of the second vocabulary",
+      "date": "2023-01-23T00:00:00.000Z",
+      "date_type": "publication",
+      "language": "eng"
+    }
+  ],
+  "enumeration_data_types": [
+    {
+      "name": "enum1",
+      "description": "Description of enumeration data type enum1",
+      "versions": [
+        {
+          "version": "default",
+          "values": [
+            {
+              "vocabulary": "vocabulary2",
+              "terms": [
+                "enum1_value1",
+                "enum1_value2",
+                "enum1_value3"
+              ]
+            },
+            {
+              "vocabulary": "vocabulary1",
+              "terms": [
+                "enum1_valor1",
+                "enum1_valor2",
+                "enum1_valor3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "complex_data_types": [
+    {
+      "name": "complex1",
+      "description": "Description of complex data type 1",
+      "versions": [
+        {
+          "version": "complex1_version1",
+          "fields": [
+            {
+              "name": "complex1_field1",
+              "description": "description of first field of complex type 1",
+              "data_type": "enum1",
+              "repeated": false
+            },
+            {
+              "name": "complex1_field2",
+              "description": "description of second field of complex type 1",
+              "data_type": "geometry(point,4326)",
+              "repeated": false
+            }
+          ]
+        },
+        {
+          "version": "complex1_version2",
+          "fields": [
+            {
+              "name": "complex1_field1",
+              "description": "description of first field of complex type 1",
+              "data_type": "enum1",
+              "repeated": false
+            },
+            {
+              "name": "complex1_field2",
+              "description": "description of second field of complex type 1",
+              "data_type": "geometry(point,4326)",
+              "repeated": false
+            },
+            {
+              "name": "complex1_field3",
+              "description": "description of third field of complex type 1",
+              "data_type": "integer",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "feature_types": [
+    {
+      "name": "featuretype1",
+      "description": "description of the first feature type",
+      "names": [
+        {
+          "term": "featuretype1_name1",
+          "vocabulary": "vocabulary1"
+        },
+        {
+          "term": "featuretype1_name2",
+          "vocabulary": "vocabulary2"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ft1_property1",
+          "description": "description of the first property of feature type 1",
+          "names": [
+            {
+              "term": "ft1_property1_name1",
+              "vocabulary": "vocabulary1"
+            }
+          ],
+          "data_type": "integer",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "ft1_property2",
+          "description": "description of the second property of feature type 1",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "ft1_property3",
+          "description": "description of the third property of feature type 1",
+          "data_type": "category(eng)",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ]
+    },
+    {
+      "name": "featuretype2",
+      "description": "description of the second feature type",
+      "properties": [
+        {
+          "name": "ft2_property1",
+          "description": "description of the first property of feature type 2",
+          "data_type": "text",
+          "repeated": true,
+          "scope": "feature"
+        }
+      ],
+      "references": [
+        {
+          "name": "ft2_ref1",
+          "description": "Description of the first reference of feature type 2",
+          "repeated": false,
+          "referenced_type": "featuretype1",
+          "scope": "feature"
+        }
+      ]
+    }
+  ],
+  "spatial_sampling_feature_types": [
+    {
+      "name": "sftype1",
+      "description": "description of the first sampling feature type",
+      "names": [
+        {
+          "term": "sftype_name1",
+          "vocabulary": "vocabulary1"
+        },
+        {
+          "term": "sftype_name2",
+          "vocabulary": "vocabulary2"
+        }
+      ],
+      "properties": [
+        {
+          "name": "sftype1_property1",
+          "description": "description of the first property of sampling feature type 1",
+          "data_type": "enum1",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ],
+      "sampled_feature_type": "featuretype1",
+      "shape_type": "point",
+      "shape_crs": "EPSG:4326",
+      "height_type": "range",
+      "height_crs": "EPSG:5782"
+    }
+  ],
+  "specimen_feature_types": [
+    {
+      "name": "spectype1",
+      "description": "description of the first specimen feature type",
+      "names": [
+        {
+          "term": "spectype1_name1",
+          "vocabulary": "vocabulary1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "spectype1_property1",
+          "description": "Description of the first property of specimen",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "spectype1_property2",
+          "description": "Descriptionof the second property of specimen",
+          "data_type": "real",
+          "repeated": true,
+          "scope": "feature"
+        }
+      ],
+      "sampled_feature_type": "featuretype1",
+      "sampling_time_extension": "instant",
+      "generated_sampling_location_type": {
+        "shape_type": "point",
+        "shape_crs": "EPSG:4326",
+        "height_type": "point",
+        "height_crs": "EPSG:5831"
+      },
+      "sampling_method_type": {
+        "name": "sptype1",
+        "description": "Description of the first sampling process type.",
+        "names": [
+          {
+            "term": "sptype1_name1",
+            "vocabulary": "vocabulary1"
+          }
+        ],
+        "properties": [
+          {
+            "name": "sptype1_property1",
+            "description": "First property of the sampling process type 1",
+            "data_type": "integer",
+            "repeated": false,
+            "scope": "feature"
+          }
+        ]
+      }
+    }
+  ],
+  "process_types": [
+    {
+      "name": "ptype1",
+      "description": "description of process type 1",
+      "names": [
+        {
+          "term": "ptype1_name1",
+          "vocabulary": "vocabulary1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ptype1_property1",
+          "description": "First property of the process type 1",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "ptype1_property2",
+          "description": "Second property of the process type 1",
+          "data_type": "integer",
+          "repeated": true,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "eng"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "orgainsation1",
+          "electronic_mail_address": "info@organization1.com",
+          "role": "resourceProvider"
+        }
+      ],
+      "metadata_date_stamp": "2024-01-03T00:00:00.000Z",
+      "title": "Title of the dataset generated by this process type",
+      "abstract": "Abstract that describes the dataset generated by the process type",
+      "identifier": "identifier used to show in the ISO 19115 NEM metadata",
+      "point_of_contact": [
+        {
+          "organisation_name": "orgainsation1",
+          "electronic_mail_address": "info@organization1.com",
+          "role": "resourceProvider"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "keyword1",
+          "vocabulary": "vocabulario2"
+        },
+        {
+          "keyword": "keyword2",
+          "vocabulary": "vocabulario2"
+        },
+        {
+          "keyword": "keyword3",
+          "vocabulary": "vocabulario2"
+        }
+      ],
+      "specific_usage": "Describes how the users are using the dataset generated by the process type.",
+      "user_contact": [
+        {
+          "organisation_name": "orgainsation1",
+          "electronic_mail_address": "info@organization1.com",
+          "role": "resourceProvider"
+        }
+      ],
+      "use_limitation": "text that describes the conditions of access and use of the data generated",
+      "spatial_representation_type": "vector",
+      "spatial_resolution": [
+        150000,
+        25000
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "farming",
+        "economy",
+        "transportation"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "period",
+      "platform": {
+        "feature_type": "sftype1",
+        "scope": "feature"
+      },
+      "shared_feature_of_interest_type": "sftype1",
+      "observed_properties": [
+        {
+          "name": "ptype1_obsprop1",
+          "description": "first observed property of process type ptype1",
+          "names": [
+            {
+              "term": "type1_obsprop1_name1",
+              "vocabulary": "vocabulary1"
+            }
+          ],
+          "data_type": "measure(ºC)",
+          "repeated": false,
+          "temporal_scope": "discrete_coverage",
+          "sampling_time_type": "instant",
+          "geospatial_scope": "observation",
+          "height_scope": "sample",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "ptype1_obsprop2",
+          "description": "second observed property of process type ptype1",
+          "names": [
+            {
+              "term": "type1_obsprop2_name1",
+              "vocabulary": "vocabulary1"
+            }
+          ],
+          "data_type": "category(vocabulary2)",
+          "repeated": false,
+          "temporal_scope": "discrete_coverage",
+          "sampling_time_type": "instant",
+          "geospatial_scope": "observation",
+          "height_scope": "sample",
+          "sampling_height_type": "point"
+        }
+      ]
+    },
+    {
+      "name": "ptype2",
+      "description": "description of process type 2",
+      "names": [
+        {
+          "term": "ptype2_name1",
+          "vocabulary": "vocabulary2"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ptype2_property1",
+          "description": "First property of the process type 2",
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ],
+      "metadata_language": [
+        "eng"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "orgainsation1",
+          "electronic_mail_address": "info@organization1.com",
+          "role": "resourceProvider"
+        }
+      ],
+      "metadata_date_stamp": "2024-01-03T00:00:00.000Z",
+      "title": "Title of the dataset generated by this process type",
+      "abstract": "Abstract that describes the dataset generated by the process type",
+      "identifier": "identifier used to show in the ISO 19115 NEM metadata",
+      "point_of_contact": [
+        {
+          "organisation_name": "orgainsation1",
+          "electronic_mail_address": "info@organization1.com",
+          "role": "resourceProvider"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "keyword1",
+          "vocabulary": "vocabulario2"
+        },
+        {
+          "keyword": "keyword2",
+          "vocabulary": "vocabulario2"
+        },
+        {
+          "keyword": "keyword3",
+          "vocabulary": "vocabulario2"
+        }
+      ],
+      "specific_usage": "Describes how the users are using the dataset generated by the process type.",
+      "user_contact": [
+        {
+          "organisation_name": "orgainsation1",
+          "electronic_mail_address": "info@organization1.com",
+          "role": "resourceProvider"
+        }
+      ],
+      "use_limitation": "text that describes the conditions of access and use of the data generated",
+      "spatial_representation_type": "vector",
+      "spatial_resolution": [
+        150000,
+        25000
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "farming",
+        "economy",
+        "transportation"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "period",
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:23029",
+        "sampled_feature_type": "featuretype1"
+      },
+      "observed_properties": [
+        {
+          "name": "ptype2_obsprop1",
+          "description": "first observed property of process type ptype2",
+          "names": [
+            {
+              "term": "ptype2_obsprop1_name1",
+              "vocabulary": "vocabulary1"
+            }
+          ],
+          "data_type": "complex1",
+          "repeated": false,
+          "temporal_scope": "discrete_coverage",
+          "sampling_time_type": "instant",
+          "geospatial_scope": "sample",
+          "sampling_geometry_type": "surface"
+        },
+        {
+          "name": "ptype2_obsprop2",
+          "description": "second observed property of process type ptype1",
+          "names": [
+            {
+              "term": "ptype2_obsprop2_name1",
+              "vocabulary": "vocabulary1"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "temporal_scope": "observation"
+        }
+      ]
+    }
+  ]
+}

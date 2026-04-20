@@ -1,0 +1,164 @@
+body {
+  background-color: #f8f9fa;
+}
+
+header h1 {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+header p {
+  color: #6c757d;
+}
+
+.card {
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.input-group .form-control {
+  border-right: 0;
+}
+
+.input-group .btn {
+  border-left: 0;
+  background: #fff;
+}
+
+#toggle-password {
+  min-width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#eye-icon {
+  font-size: 1.2rem;
+}
+
+footer {
+  margin-top: 3rem;
+  color: #bdbdbd;
+  font-size: 0.97rem;
+}
+
+#connect-response, #createdb-response {
+  min-height: 2.2rem;
+}
+
+.container > .row {
+  margin-top: 0 !important;
+}
+
+.card-body {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .row.gx-4 {
+    display: flex !important;
+    align-items: stretch !important;
+  }
+  .col-md-6.d-flex.align-items-stretch {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch !important;
+    height: auto;
+  }
+  .col-md-6.d-flex.align-items-stretch > .card.flex-fill {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .col-md-6.d-flex.align-items-stretch > .card.flex-fill .card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .container > .row {
+    margin-top: 0.5rem !important;
+  }
+}
+
+#logs-section {
+  background: #181c20;
+  color: #e5e5e5;
+  border-radius: 6px;
+  min-height: 120px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+  padding: 12px 8px 8px 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+
+.log-entry {
+  margin-bottom: 4px;
+  padding: 3px 0 3px 0;
+  border-left: 3px solid #444;
+  background: none;
+  color: #e5e5e5;
+  font-size: 0.98em;
+  word-break: break-word;
+}
+
+.log-entry:last-child {
+  margin-bottom: 0;
+}
+
+.log-entry .log-time {
+  color: #8bc6f7;
+  font-size: 0.96em;
+  margin-right: 6px;
+}
+
+.log-entry .log-source {
+  color: #ffdf8e;
+  margin-right: 6px;
+}
+
+.log-entry .log-msg {
+  color: #e5e5e5;
+}
+
+.log-entry.log-error {
+  border-left: 3px solid #e74c3c;
+  background: none;
+  color: #ffb3b3;
+}
+
+.log-entry.log-error .log-msg {
+  color: #ffb3b3;
+}
+
+#logs-clear-btn {
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+#logs-clear-btn:hover, #logs-clear-btn:focus {
+  background: #d9363e;
+  color: #fff;
+}
+
+#connect-form .btn-primary {
+  height: 38px;
+  min-height: 38px;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}

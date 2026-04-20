@@ -1,0 +1,809 @@
+{
+  "$defs": {
+    "names_type": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "vocabulary": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "term",
+          "vocabulary"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "feature_properties_type": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "names": {
+            "$ref": "#/$defs/names_type"
+          },
+          "data_type": {
+            "type": "string"
+          },
+          "repeated": {
+            "type": "boolean"
+          },
+          "scope": {
+            "enum": [
+              "feature",
+              "valid_time_period"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "data_type",
+          "repeated",
+          "scope"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "feature_references_type": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "names": {
+            "$ref": "#/$defs/names_type"
+          },
+          "referenced_type": {
+            "type": "string"
+          },
+          "repeated": {
+            "type": "boolean"
+          },
+          "scope": {
+            "enum": [
+              "feature",
+              "valid_time_period"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "referenced_type",
+          "repeated",
+          "scope"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "contact_type": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "organisation_name": {
+            "type": "string"
+          },
+          "electronic_mail_address": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "resourceProvider",
+              "custodian",
+              "owner",
+              "user",
+              "distributor",
+              "originator",
+              "pointOfContact",
+              "principalInvestigator",
+              "processor",
+              "publisher",
+              "author"
+            ]
+          }
+        },
+        "required": [
+          "organisation_name",
+          "electronic_mail_address",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string"
+    },
+    "vocabularies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "date_type": {
+            "enum": [
+              "adopted",
+              "creation",
+              "deprecated",
+              "distribution",
+              "expiry",
+              "inForce",
+              "lastRevision",
+              "lastUpdate",
+              "nextUpdate",
+              "publication",
+              "released",
+              "revision",
+              "superseded",
+              "unavailable",
+              "validityBegins",
+              "validityExpires"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "pattern": "^[a-z]{3}$"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "language"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "enumeration_data_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "names": {
+            "$ref": "#/$defs/names_type"
+          },
+          "versions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "type": "string"
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "vocabulary": {
+                        "type": "string"
+                      },
+                      "terms": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "minItems": 1
+                      }
+                    },
+                    "required": [
+                      "vocabulary",
+                      "terms"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "version",
+                "values"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "versions"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "complex_data_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "names": {
+            "$ref": "#/$defs/names_type"
+          },
+          "versions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "names": {
+                        "$ref": "#/$defs/names_type"
+                      },
+                      "data_type": {
+                        "type": "string"
+                      },
+                      "repeated": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "description",
+                      "data_type",
+                      "repeated"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "version",
+                "fields"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "versions"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "feature_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "names": {
+            "$ref": "#/$defs/names_type"
+          },
+          "properties": {
+            "$ref": "#/$defs/feature_properties_type"
+          },
+          "references": {
+            "$ref": "#/$defs/feature_references_type"
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "spatial_sampling_feature_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "names": {
+            "$ref": "#/$defs/names_type"
+          },
+          "properties": {
+            "$ref": "#/$defs/feature_properties_type"
+          },
+          "references": {
+            "$ref": "#/$defs/feature_references_type"
+          },
+          "sampled_feature_type": {
+            "type": "string"
+          },
+          "shape_type": {
+            "enum": [
+              "point",
+              "line",
+              "surface"
+            ]
+          },
+          "shape_crs": {
+            "type": "string"
+          },
+          "height_type": {
+            "enum": [
+              "point",
+              "range"
+            ]
+          },
+          "height_crs": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "sampled_feature_type",
+          "shape_type",
+          "shape_crs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "specimen_feature_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "names": {
+            "$ref": "#/$defs/names_type"
+          },
+          "properties": {
+            "$ref": "#/$defs/feature_properties_type"
+          },
+          "references": {
+            "$ref": "#/$defs/feature_references_type"
+          },
+          "sampled_feature_type": {
+            "type": "string"
+          },
+          "sampling_time_extension": {
+            "enum": [
+              "instant",
+              "period"
+            ]
+          },
+          "shared_sampling_location_type": {
+            "type": "string"
+          },
+          "generated_sampling_location_type": {
+            "type": "object",
+            "properties": {
+              "shape_type": {
+                "enum": [
+                  "point",
+                  "line",
+                  "surface"
+                ]
+              },
+              "shape_crs": {
+                "type": "string"
+              },
+              "height_type": {
+                "enum": [
+                  "point",
+                  "range"
+                ]
+              },
+              "height_crs": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "shape_type",
+              "shape_crs"
+            ],
+            "additionalProperties": false
+          },
+          "sampling_method_type": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "names": {
+                "$ref": "#/$defs/names_type"
+              },
+              "properties": {
+                "$ref": "#/$defs/feature_properties_type"
+              },
+              "references": {
+                "$ref": "#/$defs/feature_references_type"
+              }
+            },
+            "required": [
+              "name",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "sampled_feature_type",
+          "sampling_time_extension",
+          "sampling_method_type"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "process_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "names": {
+            "$ref": "#/$defs/names_type"
+          },
+          "properties": {
+            "$ref": "#/$defs/feature_properties_type"
+          },
+          "references": {
+            "$ref": "#/$defs/feature_references_type"
+          },
+          "metadata_language": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z]{3}$"
+            },
+            "minItems": 1
+          },
+          "metadata_contact": {
+            "$ref": "#/$defs/contact_type"
+          },
+          "metadata_date_stamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string"
+          },
+          "abstract": {
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "point_of_contact": {
+            "$ref": "#/$defs/contact_type"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                },
+                "vocabulary": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "specific_usage": {
+            "type": "string"
+          },
+          "user_contact": {
+            "$ref": "#/$defs/contact_type"
+          },
+          "use_limitation": {
+            "type": "string"
+          },
+          "spatial_representation_type": {
+            "enum": [
+              "vector",
+              "grid",
+              "textTable",
+              "tin",
+              "stereoModel",
+              "video"
+            ]
+          },
+          "spatial_resolution": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "language": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z]{3}$"
+            },
+            "minItems": 1
+          },
+          "topic_category": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "farming",
+                "biota",
+                "boundaries",
+                "climatorologyMeteorologyAtmosphere",
+                "economy",
+                "elevation",
+                "environment",
+                "geoscientificInformation",
+                "health",
+                "imageryBaseMapEarthCover",
+                "intelligenceMilitary",
+                "inlandWaters",
+                "location",
+                "oceans",
+                "planningCadastre",
+                "society",
+                "structure",
+                "transportation",
+                "utilitiesCommunication"
+              ]
+            },
+            "minItems": 1
+          },
+          "result_time_type": {
+            "enum": [
+              "instant",
+              "period"
+            ]
+          },
+          "phenomenon_time_type": {
+            "enum": [
+              "result_time",
+              "instant",
+              "period"
+            ]
+          },
+          "platform": {
+            "type": "object",
+            "properties": {
+              "feature_type": {
+                "type": "string"
+              },
+              "scope": {
+                "enum": [
+                  "feature",
+                  "valid_time_period"
+                ]
+              }
+            },
+            "required": [
+              "feature_type",
+              "scope"
+            ]
+          },
+          "shared_feature_of_interest_type": {
+            "type": "string"
+          },
+          "generated_feature_of_interest_type": {
+            "type": "object",
+            "properties": {
+              "shape_type": {
+                "enum": [
+                  "point",
+                  "line",
+                  "surface"
+                ]
+              },
+              "shape_crs": {
+                "type": "string"
+              },
+              "height_type": {
+                "enum": [
+                  "point",
+                  "range"
+                ]
+              },
+              "height_crs": {
+                "type": "string"
+              },
+              "sampled_feature_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "shape_type",
+              "shape_crs",
+              "sampled_feature_type"
+            ],
+            "additionalProperties": false
+          },
+          "observed_properties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "names": {
+                  "$ref": "#/$defs/names_type"
+                },
+                "data_type": {
+                  "type": "string"
+                },
+                "repeated": {
+                  "type": "boolean"
+                },
+                "sampling_time_type": {
+                  "enum": [
+                    "instant",
+                    "period"
+                  ]
+                },
+                "temporal_scope": {
+                  "enum": [
+                    "observation",
+                    "sample",
+                    "discrete_coverage",
+                    "continuous_coverage"
+                  ]
+                },
+                "sampling_geometry_type": {
+                  "enum": [
+                    "point",
+                    "line",
+                    "surface"
+                  ]
+                },
+                "geospatial_scope": {
+                  "enum": [
+                    "observation",
+                    "sample",
+                    "discrete_coverage",
+                    "continuous_coverage"
+                  ]
+                },
+                "sampling_height_type": {
+                  "enum": [
+                    "point",
+                    "range"
+                  ]
+                },
+                "height_scope": {
+                  "enum": [
+                    "observation",
+                    "sample",
+                    "discrete_coverage",
+                    "continuous_coverage"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "description",
+                "data_type",
+                "repeated",
+                "temporal_scope"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "metadata_language",
+          "metadata_contact",
+          "metadata_date_stamp",
+          "title",
+          "abstract",
+          "identifier",
+          "point_of_contact",
+          "keywords",
+          "specific_usage",
+          "user_contact",
+          "use_limitation",
+          "spatial_representation_type",
+          "spatial_resolution",
+          "language",
+          "topic_category",
+          "phenomenon_time_type",
+          "result_time_type",
+          "observed_properties"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,441 @@
+{
+  "schema": "metashape",
+  "process_types": [
+    {
+      "name": "mosaico_rgb",
+      "description": "Proceso que genera mosaicos RGB a partir de ráfagas de imágenes RGB.",
+      "references": [
+        {
+          "name": "proceso_captura",
+          "description": "Referencia al proceso de generación de ráfagas del que se obtienen los datos de entrada",
+          "repeated": false,
+          "referenced_type": "observacion_aerea.captura_rafaga_visible",
+          "scope": "feature"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Mosaicos RGB generados por metashape",
+      "abstract": "Este conjunto de datos está compuesto mosaicos RGB generados a partir de ráfagas de imágenes",
+      "identifier": "metashape_mosaico_rgb",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "metashape"
+        },
+        {
+          "keyword": "rgb"
+        },
+        {
+          "keyword": "mosaico"
+        },
+        {
+          "keyword": "ortofotografía"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "period",
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "observacion_aerea.mision"
+      },
+      "observed_properties": [
+        {
+          "name": "red",
+          "description": "banda roja del mosaico rgb",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "green",
+          "description": "banda verde del mosaico rgb",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "blue",
+          "description": "banda azul del mosaico rgb",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "alpha",
+          "description": "banda de transparencia del mosaico rgb",
+          "data_type": "integer",
+          "repeated": true,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        }
+      ]
+    },
+    {
+      "name": "modelo_elevacion",
+      "description": "Proceso que genera modelos de elevación a partir de ráfagas de imágenes RGB",
+      "references": [
+        {
+          "name": "proceso_captura",
+          "description": "Referencia al proceso de generación de ráfagas del que se obtienen los datos de entrada",
+          "repeated": false,
+          "referenced_type": "observacion_aerea.captura_rafaga_visible",
+          "scope": "feature"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Mosaicos RGB generados por metashape",
+      "abstract": "Este conjunto de datos está compuesto mosaicos RGB generados a partir de ráfagas de imágenes",
+      "identifier": "metashape_modelo_elevacion",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "metashape"
+        },
+        {
+          "keyword": "elevacion"
+        },
+        {
+          "keyword": "dem"
+        },
+        {
+          "keyword": "mdt"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "elevation"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "period",
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "observacion_aerea.mision"
+      },
+      "observed_properties": [
+        {
+          "name": "elevacion_terreno",
+          "description": "Elevación del terreno sobre el nivel del mar",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "elevacion_superficie",
+          "description": "Elevación de la superficie sobre el nivel del mar",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        }
+      ]
+    },
+    {
+      "name": "mosaico_ir",
+      "description": "Proceso que genera mosaicos de imagen térmica a partir de ráfagas de imágenes infrarrojas",
+      "references": [
+        {
+          "name": "proceso_captura",
+          "description": "Referencia al proceso de generación de ráfagas del que se obtienen los datos de entrada",
+          "repeated": false,
+          "referenced_type": "observacion_aerea.captura_rafaga_infrarroja",
+          "scope": "feature"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Mosaicos térmicos generados por metashape",
+      "abstract": "Este conjunto de datos está compuesto mosaicos térmicos generados a partir de ráfagas de imágenes",
+      "identifier": "metashape_mosaico_ir",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "metashape"
+        },
+        {
+          "keyword": "térmica"
+        },
+        {
+          "keyword": "imagen"
+        },
+        {
+          "keyword": "infrarroja"
+        },
+        {
+          "keyword": "temperatura"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "environment"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "period",
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "observacion_aerea.mision"
+      },
+      "observed_properties": [
+        {
+          "name": "temperatura",
+          "description": "Temperatura medida por la cámara infrarroja",
+          "data_type": "measure(ºC)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        }
+      ]
+    },
+    {
+      "name": "mosaico_multiespectral",
+      "description": "Proceso que genera mosaicos de imagen multiespectral a partir de ráfagas de imágenes.",
+      "references": [
+        {
+          "name": "proceso_captura",
+          "description": "Referencia al proceso de generación de ráfagas del que se obtienen los datos de entrada",
+          "repeated": false,
+          "referenced_type": "observacion_aerea.captura_rafaga_multiespectral",
+          "scope": "feature"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "metadata_date_stamp": "2024-12-27T00:00:00.000Z",
+      "title": "Mosaicos mulstiespectrales generados por metashape",
+      "abstract": "Este conjunto de datos está compuesto mosaicos multiespectrales generados a partir de ráfagas de imágenes",
+      "identifier": "metashape_mosaico_multiespectral",
+      "point_of_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "metashape"
+        },
+        {
+          "keyword": "multiespectral"
+        },
+        {
+          "keyword": "imagen"
+        },
+        {
+          "keyword": "NIR"
+        },
+        {
+          "keyword": "ndvi"
+        }
+      ],
+      "specific_usage": "Apoyo en las misiones y analítica posterior.",
+      "user_contact": [
+        {
+          "organisation_name": "AVINCIS",
+          "electronic_mail_address": "contact@avincis.com",
+          "role": "owner"
+        }
+      ],
+      "use_limitation": "Solo se permite el uso bajo las condiciones establecidas por AVINCIS.",
+      "spatial_representation_type": "grid",
+      "spatial_resolution": [
+        0.25
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "imageryBaseMapEarthCover"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "period",
+      "generated_feature_of_interest_type": {
+        "shape_type": "surface",
+        "shape_crs": "EPSG:4326",
+        "sampled_feature_type": "observacion_aerea.mision"
+      },
+      "observed_properties": [
+        {
+          "name": "red",
+          "description": "Banda roja del rgb",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "green",
+          "description": "Banda verde del rgb",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "blue",
+          "description": "Banda azul del rgb",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "nir",
+          "description": "Banda NIR",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "falso_color",
+          "description": "Banda de falso color",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "ndvi",
+          "description": "Banda del índice de vegetación NVDI",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        },
+        {
+          "name": "ndvi_reclass",
+          "description": "Banda reclasificada del índice de vegetación",
+          "data_type": "integer",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "sampling_geometry_type": "surface",
+          "geospatial_scope": "continuous_coverage"
+        }
+      ]
+    }
+  ]
+}
