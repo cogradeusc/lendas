@@ -1,0 +1,27 @@
+{
+  "schema": "ccmm_global",
+  "vocabularies": [
+    {
+      "name": "castellano",
+      "description": "Vocabulario utilizado para anotar los textos escritos en castellano",
+      "language": "spa"
+    },
+    {
+      "name": "galego",
+      "description": "Vocabulario utilizado para anotar textos escritos en galego",
+      "language": "glg"
+    },
+    {
+      "name": "english",
+      "description": "Vocabulary used to tag texts written in english",
+      "language": "eng"
+    },
+    {
+      "name": "cf_standard_names",
+      "description": "CF Standard Name Table, version 89. URL: https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html>",
+      "date": "2025-01-21T00:00:00.000Z",
+      "date_type": "publication",
+      "language": "eng"
+    }
+  ]
+}

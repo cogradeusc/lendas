@@ -1,0 +1,456 @@
+{
+  "schema": "roms_meteogalicia",
+  "complex_data_types": [
+    {
+      "name": "sea_water_velocity",
+      "description": "Vector que representa las componentes de la corriente.",
+      "names": [
+        {
+          "term": "Velocidad de la corriente",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "term": "Velocidade da corrente",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "term": "sea water velocity",
+          "vocabulary": "ccmm_global.english"
+        },
+        {
+          "term": "sea_water_velocity",
+          "vocabulary": "ccmm_global.cf_standard_names"
+        }
+      ],
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "u_momentum_component",
+              "description": "Componente u del vector de corriente.",
+              "names": [
+                {
+                  "term": "Componente u de la corriente",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "Componente u da corrente",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "sea water velocity u component",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "eastward_sea_water_velocity",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "measure(m/s)",
+              "repeated": false
+            },
+            {
+              "name": "v_momentum_component",
+              "description": "Componente v de la corriente.",
+              "names": [
+                {
+                  "term": "Componente v de la corriente",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "Componente v da corrente",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "sea water velocity v component",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "northward_sea_water_velocity",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "measure(m/s)",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "feature_types": [
+    {
+      "name": "region_interes_roms",
+      "description": "Región espacial en la que se ejecuta el modelo ROMS.",
+      "names": [
+        {
+          "term": "Región de interés ROMS",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "term": "Rexión de interés ROMS",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "term": "ROMS region of interest",
+          "vocabulary": "ccmm_global.english"
+        }
+      ],
+      "properties": [
+        {
+          "name": "nombre",
+          "description": "Nombre de la región",
+          "names": [
+            {
+              "term": "nombre",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "nome",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "name",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "descripcion",
+          "description": "Descripción de la región.",
+          "names": [
+            {
+              "term": "descripcion",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "descrición",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "description",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "geo",
+          "description": "Geometría de la región.",
+          "names": [
+            {
+              "term": "descripcion",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "descrición",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "description",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ]
+    }
+  ],
+  "spatial_sampling_feature_types": [
+    {
+      "name": "grid_modelo_roms",
+      "description": "Grid que define el muestreo realizado por el modelo ROMS.",
+      "names": [
+        {
+          "term": "Grid del modelo ROMS",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "term": "Grid do modelo ROMS",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "term": "ROMS model grid",
+          "vocabulary": "ccmm_global.english"
+        }
+      ],
+      "sampled_feature_type": "region_interes_roms",
+      "shape_type": "surface",
+      "shape_crs": "EPSG:4326",
+      "height_type": "range",
+      "height_crs": "EPSG:5715"
+    }
+  ],
+  "process_types": [
+    {
+      "name": "modelo_roms",
+      "description": "Proceso del modelo ROMS",
+      "names": [
+        {
+          "term": "modelo ROMS",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "term": "modelo ROMS",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "term": "ROMS model",
+          "vocabulary": "ccmm_global.english"
+        }
+      ],
+      "properties": [
+        {
+          "name": "nombre",
+          "description": "Nombre asignado al proceso",
+          "names": [
+            {
+              "term": "nombre",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "nome",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "name",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "descripcion",
+          "description": "Descripción textual del proceso.",
+          "names": [
+            {
+              "term": "descripción",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "descrición",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "description",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "Meteogalicia",
+          "electronic_mail_address": "meteogalicia@xunta.gal",
+          "role": "resourceProvider"
+        }
+      ],
+      "metadata_date_stamp": "2025-03-19T00:00:00.000Z",
+      "title": "Resultados de la ejecución del modelo ROMS",
+      "abstract": "En este conjunto de datos se almacenanan los resultados de la ejecución del modelo ROMS.",
+      "identifier": "meteogalicia-roms",
+      "point_of_contact": [
+        {
+          "organisation_name": "Meteogalicia",
+          "electronic_mail_address": "meteogalicia@xunta.gal",
+          "role": "resourceProvider"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "modelo roms",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "keyword": "modelo roms",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "keyword": "roms model",
+          "vocabulary": "ccmm_global.english"
+        },
+        {
+          "keyword": "galicia"
+        },
+        {
+          "keyword": "oceano",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "keyword": "ocean",
+          "vocabulary": "ccmm_global.english"
+        },
+        {
+          "keyword": "mar",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "keyword": "sea",
+          "vocabulary": "ccmm_global.english"
+        }
+      ],
+      "specific_usage": "Not reported.",
+      "user_contact": [
+        {
+          "organisation_name": "meteogalicia",
+          "electronic_mail_address": "meteogalicia@xunta.gal",
+          "role": "resourceProvider"
+        }
+      ],
+      "use_limitation": "No se especifican limitaciones en el uso de estos datos.",
+      "spatial_representation_type": "vector",
+      "spatial_resolution": [
+        1000
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "environment",
+        "geoscientificInformation",
+        "oceans"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "period",
+      "shared_feature_of_interest_type": "grid_modelo_roms",
+      "observed_properties": [
+        {
+          "name": "salinity",
+          "description": "Salinidad del agua",
+          "names": [
+            {
+              "term": "salinidad",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "salinidade",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "salinity",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_salinity",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(psu)",
+          "repeated": false,
+          "sampling_time_type": "instant",
+          "temporal_scope": "continuous_coverage",
+          "sampling_geometry_type": "point",
+          "geospatial_scope": "continuous_coverage",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "potential_temperature",
+          "description": "Temperatura potencial del agua",
+          "names": [
+            {
+              "term": "temperatura potencial",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "temperatura potencial",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "potential temperature",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_potential_temperature",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(ºC)",
+          "repeated": false,
+          "sampling_time_type": "instant",
+          "temporal_scope": "continuous_coverage",
+          "sampling_geometry_type": "point",
+          "geospatial_scope": "continuous_coverage",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "sea_water_velocity",
+          "description": "Velocidad de la corriente del agua.",
+          "names": [
+            {
+              "term": "velocidad de la corriente",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "velocidade da corriente",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "potential temperature",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_velocity",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "sea_water_velocity",
+          "repeated": false,
+          "sampling_time_type": "instant",
+          "temporal_scope": "continuous_coverage",
+          "sampling_geometry_type": "point",
+          "geospatial_scope": "continuous_coverage",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "free_surface",
+          "description": "Altura del nivel del mar sobre el geoide.",
+          "names": [
+            {
+              "term": "Nivel del mar",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "Nivel do mar",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "Sea water elevation",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_surface_height_above_geoid",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(m)",
+          "repeated": false,
+          "sampling_time_type": "instant",
+          "temporal_scope": "continuous_coverage",
+          "sampling_geometry_type": "point",
+          "geospatial_scope": "continuous_coverage",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+#In a YAML file, we define the elements that are contained in a single schema.
+schema: vessel_sampling_ieo
+
+feature_types:
+    - name: observed_area
+      description: Zona del océano objeto de muestreo por las trayectorias de los barcos.
+      names:
+        - term: area observada
+          vocabulary: ccmm_global.castellano
+        - term: área observada
+          vocabulary: ccmm_global.galego
+        - term: observed area
+          vocabulary: ccmm_global.english
+      properties:
+        - name: nombre
+          description: nombre del área observada
+          names:
+              - term: nombre
+                vocabulary: ccmm_global.castellano
+              - term: nome
+                vocabulary: ccmm_global.galego
+              - term: name
+                vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+        - name: descripcion
+          description: Descripción de la zona observada
+          names:
+              - term: descripción
+                vocabulary: ccmm_global.castellano
+              - term: descrición
+                vocabulary: ccmm_global.galego
+              - term: description
+                vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature  
+        - name: geo
+          description: Geometría de la zona observada
+          names:
+              - term: geometría
+                vocabulary: ccmm_global.castellano
+              - term: xeometría
+                vocabulary: ccmm_global.galego
+              - term: geometry
+                vocabulary: ccmm_global.english
+          data_type: geometry(Polygon,4326)
+          repeated: false
+          scope: feature 
+
+process_types:
+    - name: vessel
+      description: Embarcación equipada con dispositivos para capturar trayectorias de mediciones de temperatura, salinidad, fluorescencia, materia orgánica disuelta y turbidez. La velocidad y la aceleración de la embarcación también se registran en cada punto de la trayectoria.
+      names:
+        - term: barco
+          vocabulary: ccmm_global.castellano
+        - term: barco
+          vocabulary: ccmm_global.galego
+        - term: vessel
+          vocabulary: ccmm_global.english
+      properties:
+        - name: name
+          description: Nombre del buque
+          names:
+            - term: nombre
+              vocabulary: ccmm_global.castellano
+            - term: nome
+              vocabulary: ccmm_global.galego
+            - term: name
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+        - name: equipment 
+          description: Descripción textual del equipamiento de sensorizacion a bordo del buque
+          names:
+            - term: equipamiento
+              vocabulary: ccmm_global.castellano
+            - term: equipamento
+              vocabulary: ccmm_global.galego
+            - term: equipment
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: valid_time_period
+      metadata_language: 
+          - spa #ISO-639-2 codes (3 characters) eng, spa, cat, glg, eus, arg, ast (https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      metadata_contact: 
+          - organisation_name: Instituto Español de Oceanografía (IEO).
+            electronic_mail_address: ieo.coruna@ieo.csic.es
+            role: resourceProvider #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      metadata_date_stamp: 2025-07-08
+      title: Muestreo a bordo de buque
+      abstract: Conjunto de datos con muestreos a bordo de buques que proporciona el Centro Oceanográfico de A Coruña del Instituto Español de Oceanografría. Se muestrea temperatura del agua, salinidad, materia orgánica disuelta y turbidez.
+      identifier: muestreo_busques_termosalinografos.
+      point_of_contact:
+          - organisation_name: Instituto Español de Oceanografía (IEO)
+            electronic_mail_address: ieo.coruna@ieo.csic.es
+            role: resourceProvider #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      #remaineder metadata elements
+      keywords: 
+          - keyword: temperatura
+            vocabulary: ccmm_global.castellano
+          - keyword: temperatura
+            vocabulary: ccmm_global.galego
+          - keyword: temperature
+            vocabulary: ccmm_global.english
+          - keyword: salinidad
+            vocabulary: ccmm_global.castellano
+          - keyword: salinidade
+            vocabulary: ccmm_global.galego
+          - keyword: salinity
+            vocabulary: ccmm_global.english
+          - keyword: materia orgánica disuelta
+            vocabulary: ccmm_global.castellano
+          - keyword: materia orgánica disolta
+            vocabulary: ccmm_global.galego
+          - keyword: dissolved organic matter
+            vocabulary: ccmm_global.english
+          - keyword: turbidez
+            vocabulary: ccmm_global.castellano
+          - keyword: turbidez
+            vocabulary: ccmm_global.galego
+          - keyword: turbidity
+            vocabulary: ccmm_global.english
+          - keyword: oceano
+            vocabulary: ccmm_global.castellano
+          - keyword: oceano
+            vocabulary: ccmm_global.galego
+          - keyword: ocean
+            vocabulary: ccmm_global.english
+          - keyword: agua de mar
+            vocabulary: ccmm_global.castellano
+          - keyword: auga de mar
+            vocabulary: ccmm_global.galego
+          - keyword: sea water
+            vocabulary: ccmm_global.english
+          - keyword: trayectoria
+            vocabulary: ccmm_global.castellano
+          - keyword: traxectoria
+            vocabulary: ccmm_global.galego
+          - keyword: trayectory
+            vocabulary: ccmm_global.english
+      specific_usage: Usado en general para labores de investigación por el IEO y por colaboradores.
+      user_contact:
+          - organisation_name: Instituto Español de Oceanografía (IEO)
+            electronic_mail_address: ieo.coruna@ieo.csic.es
+            role: resourceProvider #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      use_limitation: No se han definido limitaciones de forma específica. Se recomienda de todas formas contactar antes con el IEO.
+      spatial_representation_type: vector #vector, grid, textTable, tin, stereoModel, video
+      spatial_resolution: 
+           - 25000 # for vector show the scale. For raster show the resolution of the pixel. Show all resolutions in the dataset
+      language: 
+          - spa #ISO-639-2 codes (3 characters) eng, spa, cat, glg, eus, arg, ast (https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      topic_category:
+          - climatorologyMeteorologyAtmosphere
+          - environment
+          - geoscientificInformation
+          - oceans #farming, biota, boundaries, climatorologyMeteorologyAtmosphere, economy, elevation, environment, geoscientificInformation, health, imageryBaseMapEarthCover, intelligenceMilitary, inlandWaters, location, oceans, planningCadastre, society, structure, trasnsportation, utilitiesCommunication    
+      #remaineder metadata elements
+      result_time_type: period
+      phenomenon_time_type: result_time
+      generated_feature_of_interest_type:
+          shape_type: line
+          shape_crs: EPSG:4326
+          sampled_feature_type: observed_area
+      observed_properties:
+         - name: temperatura_090c
+           description: temperatura del agua
+           names: 
+               - term: temperatura
+                 vocabulary: ccmm_global.castellano
+               - term: temperatura
+                 vocabulary: ccmm_global.galego
+               - term: temperature
+                 vocabulary: ccmm_global.english
+               - term: sea_water_temperature
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(ºC)
+           repeated: false
+           temporal_scope: discrete_coverage
+           sampling_time_type: instant
+           geospatial_scope: sample 
+           sampling_geometry_type: point
+         - name: salinidad
+           description: salinidad del agua
+           names: 
+               - term: salinidad
+                 vocabulary: ccmm_global.castellano
+               - term: salinidade
+                 vocabulary: ccmm_global.galego
+               - term: salinity
+                 vocabulary: ccmm_global.english
+               - term: sea_water_salinity
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(null)
+           repeated: false
+           temporal_scope: discrete_coverage
+           sampling_time_type: instant
+           geospatial_scope: sample 
+           sampling_geometry_type: point
+         - name: flourescencia
+           description: flourescencia del agua
+           names: 
+               - term: flourescencia
+                 vocabulary: ccmm_global.castellano
+               - term: flourescencia
+                 vocabulary: ccmm_global.galego
+               - term: fluorescence
+                 vocabulary: ccmm_global.english
+           data_type: measure(mg/m3)
+           repeated: false
+           temporal_scope: discrete_coverage
+           sampling_time_type: instant
+           geospatial_scope: sample 
+           sampling_geometry_type: point
+         - name: materia_organica_disuelta
+           description: Cantidad de materia orgánica disuelta en el água (Chromophoric Dissolved Organic Matter - CDOM)
+           names: 
+               - term: materia orgánica disuelta cromófora
+                 vocabulary: ccmm_global.castellano
+               - term: materia orgánica disolta cromófora
+                 vocabulary: ccmm_global.galego
+               - term: Chromophoric Dissolved Organic Matter
+                 vocabulary: ccmm_global.english
+               - term: concentration_of_colored_dissolved_organic_matter_in_sea_water_expressed_as_equivalent_mass_fraction_of_quinine_sulfate_dihydrate
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(null)
+           repeated: false
+           temporal_scope: discrete_coverage
+           sampling_time_type: instant
+           geospatial_scope: sample 
+           sampling_geometry_type: point
+         - name: turbidez
+           description: Turbidez del agua
+           names: 
+               - term: turbidez
+                 vocabulary: ccmm_global.castellano
+               - term: turbidez
+                 vocabulary: ccmm_global.galego
+               - term: turbidity
+                 vocabulary: ccmm_global.english
+               - term: sea_water_turbidity
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(null)
+           repeated: false
+           temporal_scope: discrete_coverage
+           sampling_time_type: instant
+           geospatial_scope: sample 
+           sampling_geometry_type: point
+         - name: velocidad_buque
+           description: Velocidad del buque
+           names: 
+               - term: velocidad del buque
+                 vocabulary: ccmm_global.castellano
+               - term: velocidade do buque
+                 vocabulary: ccmm_global.galego
+               - term: vessel speed
+                 vocabulary: ccmm_global.english
+           data_type: measure(m s-1)
+           repeated: false
+           temporal_scope: discrete_coverage
+           sampling_time_type: instant
+           geospatial_scope: sample 
+           sampling_geometry_type: point
+         - name: aceleracion_buque
+           description: Aceleración del buque
+           names: 
+               - term: aceleración del buque
+                 vocabulary: ccmm_global.castellano
+               - term: aceleración do buque
+                 vocabulary: ccmm_global.galego
+               - term: vessel acceleration
+                 vocabulary: ccmm_global.english
+           data_type: measure(m s-2)
+           repeated: false
+           temporal_scope: discrete_coverage
+           sampling_time_type: instant
+           geospatial_scope: sample 
+           sampling_geometry_type: point 
+        

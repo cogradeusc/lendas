@@ -1,0 +1,460 @@
+schema: traffic
+
+feature_types:
+    - name: road
+      description: It represents a road that belongs to some road network
+      names:
+        - term: carretera
+          vocabulary: ccmm_global.castellano
+        - term: estrada
+          vocabulary: ccmm_global.galego
+        - term: road
+          vocabulary: ccmm_global.english
+      properties:
+        - name: name
+          description: Name of the road
+          names:
+            - term: nombre
+              vocabulary: ccmm_global.castellano
+            - term: nome
+              vocabulary: ccmm_global.galego
+            - term: name
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+    - name: road_section
+      description: It represents a section of a specific road, that connects various segments, that in turn connect road nodes.
+      names:
+        - term: sección_carretera
+          vocabulary: ccmm_global.castellano
+        - term: sección_estrada
+          vocabulary: ccmm_global.galego
+        - term: road_section
+          vocabulary: ccmm_global.english
+      properties:
+        - name: geo
+          description: Geometry of the road section of a polyline data type.
+          names:
+            - term: geometría
+              vocabulary: ccmm_global.castellano
+            - term: xeometría
+              vocabulary: ccmm_global.galego
+            - term: geometry
+              vocabulary: ccmm_global.english
+          data_type: geometry(linestring,4326)
+          repeated: false
+          scope: feature
+        - name: speed_limit
+          description: Máximum speed allowed in the road section.
+          names:
+            - term: límite_velocidad
+              vocabulary: ccmm_global.castellano
+            - term: límite_velocidade
+              vocabulary: ccmm_global.galego
+            - term: speed_limit
+              vocabulary: ccmm_global.english
+          data_type: integer
+          repeated: false
+          scope: feature
+        - name: oneway
+          description: Boolean flag that specifies whether the road section may be traverse in one or two directions.
+          names:
+            - term: un_sentido
+              vocabulary: ccmm_global.castellano
+            - term: un_sentido
+              vocabulary: ccmm_global.galego
+            - term: oneway
+              vocabulary: ccmm_global.english
+          data_type: Boolean
+          repeated: false
+          scope: feature
+        - name: num_lanes
+          description: Number of lanes of the road section.
+          names:
+            - term: número_carriles
+              vocabulary: ccmm_global.castellano
+            - term: número_carrís
+              vocabulary: ccmm_global.galego
+            - term: number_lanes
+              vocabulary: ccmm_global.english
+          data_type: Integer
+          repeated: false
+          scope: feature
+        - name: type
+          description: Type of road section of those defined by Openstreetmap.
+          names:
+            - term: tipo
+              vocabulary: ccmm_global.castellano
+            - term: tipo
+              vocabulary: ccmm_global.galego
+            - term: type
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+      references: 
+        - name: road
+          description: References the road to which this section belongs to.
+          names:
+            - term: carretera
+              vocabulary: ccmm_global.castellano
+            - term: estrada
+              vocabulary: ccmm_global.galego
+            - term: road
+              vocabulary: ccmm_global.english
+          referenced_type: road
+          repeated: false
+          scope: feature
+    - name: road_arc
+      description: An directed arc of the graph defined in the road network
+      names:
+        - term: arco_carretera
+          vocabulary: ccmm_global.castellano
+        - term: arco_estrada
+          vocabulary: ccmm_global.galego
+        - term: road_arc
+          vocabulary: ccmm_global.english
+      properties:
+        - name: geo
+          description: Geometry of the road arc of linestring type.
+          names:
+            - term: geometría
+              vocabulary: ccmm_global.castellano
+            - term: xeometría
+              vocabulary: ccmm_global.galego
+            - term: geometry
+              vocabulary: ccmm_global.english
+          data_type: geometry(linestring,4326)
+          repeated: false
+          scope: feature
+        - name: code
+          description: Textual code of the arc.
+          names:
+            - term: código
+              vocabulary: ccmm_global.castellano
+            - term: código
+              vocabulary: ccmm_global.galego
+            - term: code
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+        - name: inverted
+          description: True if the traffic direction of the arc is inverted with respect to the sequence of point of its linestring geometry.
+          names:
+            - term: invertido
+              vocabulary: ccmm_global.castellano
+            - term: invertido
+              vocabulary: ccmm_global.galego
+            - term: inverted
+              vocabulary: ccmm_global.english
+          data_type: Boolean
+          repeated: false
+          scope: feature
+    - name: road_node
+      description: Node of the road network
+      names:
+        - term: nodo_carretera
+          vocabulary: ccmm_global.castellano
+        - term: nodo_estrada
+          vocabulary: ccmm_global.galego
+        - term: road_node
+          vocabulary: ccmm_global.english
+      properties:
+        - name: geo
+          description: Geometry of the road node of point type.
+          names:
+            - term: geometría
+              vocabulary: ccmm_global.castellano
+            - term: xeometría
+              vocabulary: ccmm_global.galego
+            - term: geometry
+              vocabulary: ccmm_global.english
+          data_type: geometry(point,4326)
+          repeated: false
+          scope: feature
+    - name: road_segment
+      description: Segment of a road that links two consecutive nodes
+      names:
+        - term: segmento_carretera
+          vocabulary: ccmm_global.castellano
+        - term: segmento_estrada
+          vocabulary: ccmm_global.galego
+        - term: road_segment
+          vocabulary: ccmm_global.english
+      properties:
+        - name: segment_number
+          description: Number of segment in its road section
+          names:
+            - term: número_segmento
+              vocabulary: ccmm_global.castellano
+            - term: número_segmento
+              vocabulary: ccmm_global.galego
+            - term: segment_number
+              vocabulary: ccmm_global.english
+          data_type: integer
+          repeated: false
+          scope: feature
+      references: 
+        - name: road_section
+          description: References the road_section that the segment belongs to.
+          names:
+            - term: sección_carretera
+              vocabulary: ccmm_global.castellano
+            - term: sección_estrada
+              vocabulary: ccmm_global.galego
+            - term: road_section
+              vocabulary: ccmm_global.english
+          referenced_type: road_section
+          repeated: false
+          scope: feature
+        - name: node_start
+          description: Start node of the segment.
+          names:
+            - term: nodo_inicio
+              vocabulary: ccmm_global.castellano
+            - term: nodo_inicio
+              vocabulary: ccmm_global.galego
+            - term: node_start
+              vocabulary: ccmm_global.english
+          referenced_type: road_node
+          repeated: false
+          scope: feature
+        - name: node_end
+          description: End node of the segment.
+          names:
+            - term: nodo_fin
+              vocabulary: ccmm_global.castellano
+            - term: nodo_fin
+              vocabulary: ccmm_global.galego
+            - term: node_end
+              vocabulary: ccmm_global.english
+          referenced_type: road_node
+          repeated: false
+          scope: feature
+
+spatial_sampling_feature_types:
+    - name: traffic_sensor_feature
+      description: Fixed location of a traffic sensor in the city.
+      names:
+        - term: entidad_sensor_tráfico
+          vocabulary: ccmm_global.castellano
+        - term: entidade_sensor_tráfico
+          vocabulary: ccmm_global.galego
+        - term: traffic_sensor_feature
+          vocabulary: ccmm_global.english
+      properties:
+        - name: direction
+          description: True if the sensor location measures traffic in the same direction of the associated road segment.
+          names:
+            - term: dirección
+              vocabulary: ccmm_global.castellano
+            - term: dirección
+              vocabulary: ccmm_global.galego
+            - term: direction
+              vocabulary: ccmm_global.english
+          data_type: boolean
+          repeated: false
+          scope: feature
+      references: 
+        - name: road_segment
+          description: Road segment where the traffic sensor is located.
+          names:
+            - term: segmento_carretera
+              vocabulary: ccmm_global.castellano
+            - term: segmento_estrada
+              vocabulary: ccmm_global.galego
+            - term: road_segment
+              vocabulary: ccmm_global.english
+          referenced_type: road_segment
+          repeated: false
+          scope: feature
+        - name: nearest_node
+          description: Nearest road node.
+          names:
+            - term: nodo_mas_cercano
+              vocabulary: ccmm_global.castellano
+            - term: nodo_mais_cercano
+              vocabulary: ccmm_global.galego
+            - term: nearest_node
+              vocabulary: ccmm_global.english
+          referenced_type: road_node
+          repeated: false
+          scope: feature
+      sampled_feature_type: road_section
+      shape_type: point
+      shape_crs: EPSG:4326
+
+process_types:
+    - name: traffic_sensor
+      description: Process that generates measures of traffic.
+      names:
+        - term: sensor_tráfico
+          vocabulary: ccmm_global.castellano
+        - term: sensor_tráfico
+          vocabulary: ccmm_global.galego
+        - term: traffic_sensor
+          vocabulary: ccmm_global.english
+      properties:
+        - name: id
+          description: textual identifier of the sensor
+          names:
+            - term: identificador
+              vocabulary: ccmm_global.castellano
+            - term: identificador
+              vocabulary: ccmm_global.galego
+            - term: identifier
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+      #now we add the ISO 19115 NEM metadata elements
+      metadata_language: 
+          - eng #ISO-639-2 codes (3 characters) eng, spa, cat, glg, eus, arg, ast (https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      metadata_contact: 
+          - organisation_name: Universidade de Santiago de Compostela
+            electronic_mail_address: jrr.viqueira@usc.es
+            role: principalInvestigator #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      metadata_date_stamp: 2025-12-16
+      title: Traffic measures obtained by the traffic monitoring infrastructure used in the TRAFAIR project
+      abstract: This dataset records all the data obtained from traffic sensors collected during the TRAFAIR project at the involved cities. The data was used as input for a traffic model that estimated the traffic flows that were used to further estimate emissions for air quality modelling.
+      identifier: trafair_traffic_sensor_measures
+      point_of_contact:
+          - organisation_name: Universidade de Santiago de Compostela
+            electronic_mail_address: jrr.viqueira@usc.es
+            role: principalInvestigator #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      #remaineder metadata elements
+      keywords: 
+          - keyword: tráfico
+            vocabulary: ccmm_global.castellano
+          - keyword: tráfico
+            vocabulary: ccmm_global.galego
+          - keyword: traffic
+            vocabulary: ccmm_global.english
+      specific_usage: This dataset might be used as a ground truth for traffic flow at specific points.
+      user_contact:
+          - organisation_name: Universidade de Santiago de Compostela
+            electronic_mail_address: jrr.viqueira@usc.es
+            role: principalInvestigator #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      use_limitation: This data may only be used for scientific purposes.
+      spatial_representation_type: vector #vector, grid, textTable, tin, stereoModel, video
+      spatial_resolution: 
+           - 500 # for vector show the scale. For raster show the resolution of the pixel. Show all resolutions in the dataset
+      language: 
+          - eng #ISO-639-2 codes (3 characters) eng, spa, cat, glg, eus, arg, ast (https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      topic_category:
+          - environment
+          - geoscientificInformation
+          - climatorologyMeteorologyAtmosphere
+          #farming, biota, boundaries, climatorologyMeteorologyAtmosphere, economy, elevation, environment, geoscientificInformation, health, imageryBaseMapEarthCover, intelligenceMilitary, inlandWaters, location, oceans, planningCadastre, society, structure, trasnsportation, utilitiesCommunication    
+      #remaineder metadata elements
+      result_time_type: instant
+      phenomenon_time_type: result_time
+      platform: 
+          feature_type: traffic_sensor_feature
+          scope: feature
+      shared_feature_of_interest_type: traffic_sensor_feature
+      observed_properties:
+         - name: flow
+           description: Number of vehicles per hour traversing the traffic sensor.
+           names: 
+               - term: flujo_tráfico
+                 vocabulary: ccmm_global.castellano
+               - term: fluxo_tráfico
+                 vocabulary: ccmm_global.galego
+               - term: traffic_flow
+                 vocabulary: ccmm_global.english
+           data_type: measure(vehicles/hour)
+           repeated: false
+           temporal_scope: observation
+         - name: occupancy
+           description: Percentaje of the time that the traffic sensor is occupied at each temporal resolution period (5 minutes).
+           names: 
+               - term: ocupación
+                 vocabulary: ccmm_global.castellano
+               - term: ocupación
+                 vocabulary: ccmm_global.galego
+               - term: occupancy
+                 vocabulary: ccmm_global.english
+           data_type: measure(%)
+           repeated: false
+           temporal_scope: observation
+    - name: traffic_flow_model
+      description: Model used to estimate the traffic at each road arc of the city based on the measures obtained from the traffic sensors.
+      names:
+        - term: modelo_flujo_tráfico
+          vocabulary: ccmm_global.castellano
+        - term: modelo_flluxo_tráfico
+          vocabulary: ccmm_global.galego
+        - term: traffic_flow_model
+          vocabulary: ccmm_global.english
+      properties:
+        - name: description
+          description: Description of the model used to generate traffic flow estimations
+          names:
+            - term: descripción
+              vocabulary: ccmm_global.castellano
+            - term: descrición
+              vocabulary: ccmm_global.galego
+            - term: description
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+      #now we add the ISO 19115 NEM metadata elements
+      metadata_language: 
+          - eng #ISO-639-2 codes (3 characters) eng, spa, cat, glg, eus, arg, ast (https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      metadata_contact: 
+          - organisation_name: Universidade de Santiago de Compostela
+            electronic_mail_address: jrr.viqueira@usc.es
+            role: principalInvestigator #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      metadata_date_stamp: 2025-12-16
+      title: Traffic flow estsimations at each road arc of the city generated during the TRAFAIR project
+      abstract: This dataset records all the data generated by the traffic flow model used in the TRAFAIR project. The data was used as input for the estimation of nox emissions, that were in turn used as input for a air quality estimation model.
+      identifier: trafair_traffic_flow_estimations
+      point_of_contact:
+          - organisation_name: Universidade de Santiago de Compostela
+            electronic_mail_address: jrr.viqueira@usc.es
+            role: principalInvestigator #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      #remaineder metadata elements
+      keywords: 
+          - keyword: tráfico
+            vocabulary: ccmm_global.castellano
+          - keyword: tráfico
+            vocabulary: ccmm_global.galego
+          - keyword: traffic
+            vocabulary: ccmm_global.english
+      specific_usage: This dataset might be used as an estimation of traffic flow at road arcs of the city.
+      user_contact:
+          - organisation_name: Universidade de Santiago de Compostela
+            electronic_mail_address: jrr.viqueira@usc.es
+            role: principalInvestigator #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      use_limitation: This data may only be used for scientific purposes.
+      spatial_representation_type: vector #vector, grid, textTable, tin, stereoModel, video
+      spatial_resolution: 
+           - 500 # for vector show the scale. For raster show the resolution of the pixel. Show all resolutions in the dataset
+      language: 
+          - eng #ISO-639-2 codes (3 characters) eng, spa, cat, glg, eus, arg, ast (https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      topic_category:
+          - environment
+          - geoscientificInformation
+          - climatorologyMeteorologyAtmosphere
+          #farming, biota, boundaries, climatorologyMeteorologyAtmosphere, economy, elevation, environment, geoscientificInformation, health, imageryBaseMapEarthCover, intelligenceMilitary, inlandWaters, location, oceans, planningCadastre, society, structure, trasnsportation, utilitiesCommunication    
+      #remaineder metadata elements
+      result_time_type: instant
+      phenomenon_time_type: instant
+      shared_feature_of_interest_type: road_arc
+      observed_properties:
+         - name: flow
+           description: Number of vehicles per hour traversing the traffic sensor.
+           names: 
+               - term: flujo_tráfico
+                 vocabulary: ccmm_global.castellano
+               - term: fluxo_tráfico
+                 vocabulary: ccmm_global.galego
+               - term: traffic_flow
+                 vocabulary: ccmm_global.english
+           data_type: measure(vehicles/hour)
+           repeated: false
+           temporal_scope: observation

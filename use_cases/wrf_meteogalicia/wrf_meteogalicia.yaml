@@ -1,0 +1,305 @@
+schema: wrf_meteogalicia
+
+feature_types:
+    - name: region_interes_wrf
+      description: Región espacial en la que se ejecuta el modelo WRF.
+      names:
+        - term: Región de interés WRF
+          vocabulary: ccmm_global.castellano
+        - term: Rexión de interés WRF
+          vocabulary: ccmm_global.galego
+        - term: WRF region of interest
+          vocabulary: ccmm_global.english
+      properties:
+        - name: nombre
+          description: Nombre de la región
+          names:
+            - term: nombre
+              vocabulary: ccmm_global.castellano
+            - term: nome
+              vocabulary: ccmm_global.galego
+            - term: name
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+        - name: descripcion
+          description: Descripción de la región.
+          names:
+            - term: descripcion
+              vocabulary: ccmm_global.castellano
+            - term: descrición
+              vocabulary: ccmm_global.galego
+            - term: description
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+        - name: geo
+          description: Geometría de la región.
+          names:
+            - term: descripcion
+              vocabulary: ccmm_global.castellano
+            - term: descrición
+              vocabulary: ccmm_global.galego
+            - term: description
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+          
+spatial_sampling_feature_types:
+    - name: grid_modelo_wrf
+      description: Grid que define el muestreo realizado por el modelo wrf.
+      names: 
+        - term: Grid del modelo WRF
+          vocabulary: ccmm_global.castellano
+        - term: Grid do modelo WRF
+          vocabulary: ccmm_global.galego
+        - term: WRF model grid
+          vocabulary: ccmm_global.english
+      sampled_feature_type: region_interes_wrf
+      shape_type: surface
+      shape_crs: EPSG:4326
+      
+process_types:
+    - name: modelo_wrf
+      description: Proceso del modelo WRF
+      names:
+        - term: modelo WRF
+          vocabulary: ccmm_global.castellano
+        - term: modelo WRF
+          vocabulary: ccmm_global.galego
+        - term: WRF model
+          vocabulary: ccmm_global.english
+      properties:
+        - name: nombre
+          description: Nombre asignado al proceso
+          names:
+            - term: nombre
+              vocabulary: ccmm_global.castellano
+            - term: nome
+              vocabulary: ccmm_global.galego
+            - term: name
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature
+        - name: descripcion
+          description: Descripción textual del proceso.
+          names:
+            - term: descripción
+              vocabulary: ccmm_global.castellano
+            - term: descrición
+              vocabulary: ccmm_global.galego
+            - term: description
+              vocabulary: ccmm_global.english
+          data_type: text
+          repeated: false
+          scope: feature 
+      #now we add the ISO 19115 NEM metadata elements
+      metadata_language: 
+          - spa #ISO-639-2 codes (3 characters) eng, spa, cat, glg, eus, arg, ast (https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      metadata_contact: 
+          - organisation_name: Meteogalicia
+            electronic_mail_address: meteogalicia@xunta.gal
+            role: resourceProvider #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      metadata_date_stamp: 2025-03-19
+      title: Resultados de la ejecución del modelo WRF
+      abstract: En este conjunto de datos se almacenanan los resultados de la ejecución del modelo WRF.
+      identifier: meteogalicia-wrf
+      point_of_contact:
+          - organisation_name: Meteogalicia
+            electronic_mail_address: meteogalicia@xunta.gal
+            role: resourceProvider #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      #remaineder metadata elements
+      keywords: 
+          - keyword: modelo wrf
+            vocabulary: ccmm_global.castellano
+          - keyword: modelo wrf
+            vocabulary: ccmm_global.galego
+          - keyword: wrf model
+            vocabulary: ccmm_global.english
+          - keyword: galicia
+          - keyword: meteorología
+            vocabulary: ccmm_global.castellano
+          - keyword: meteorology
+            vocabulary: ccmm_global.english
+          - keyword: atmósfera
+            vocabulary: ccmm_global.castellano
+          - keyword: atmosphere
+            vocabulary: ccmm_global.english
+      specific_usage: Not reported.
+      user_contact:
+          - organisation_name: meteogalicia
+            electronic_mail_address: meteogalicia@xunta.gal
+            role: resourceProvider #resourceProvider, custodian, owner, user, distributor, originator, pointOfContact, principalInvestigator, processor, publisher, author
+      use_limitation: No se especifican limitaciones en el uso de estos datos.
+      spatial_representation_type: vector #vector, grid, textTable, tin, stereoModel, video
+      spatial_resolution: 
+           - 1000 # for vector show the scale. For raster show the resolution of the pixel. Show all resolutions in the dataset
+      language: 
+          - spa #ISO-639-2 codes (3 characters) eng, spa, cat, glg, eus, arg, ast (https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      topic_category:
+          - environment
+          - geoscientificInformation
+          - climatorologyMeteorologyAtmosphere
+          #farming, biota, boundaries, climatorologyMeteorologyAtmosphere, economy, elevation, environment, geoscientificInformation, health, imageryBaseMapEarthCover, intelligenceMilitary, inlandWaters, location, oceans, planningCadastre, society, structure, trasnsportation, utilitiesCommunication    
+      #remaineder metadata elements
+      result_time_type: instant
+      phenomenon_time_type: period
+      shared_feature_of_interest_type: grid_modelo_wrf
+      observed_properties:
+         - name: wind_direction
+           description: Dirección del viento
+           names: 
+               - term: dirección del viento
+                 vocabulary: ccmm_global.castellano
+               - term: dirección do vento
+                 vocabulary: ccmm_global.galego
+               - term: wind direction
+                 vocabulary: ccmm_global.english
+               - term: wind_from_direction
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(degrees)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage 
+         - name: wind_speed
+           description: Velocidad del viento
+           names: 
+               - term: velocidad del viento
+                 vocabulary: ccmm_global.castellano
+               - term: velocidade do vento
+                 vocabulary: ccmm_global.galego
+               - term: wind speed
+                 vocabulary: ccmm_global.english
+               - term: wind_speed
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(m/s)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage
+         - name: air_pressure_at_sea_level
+           description: Presión atmosférica al nivel del mar
+           names: 
+               - term: presión a nivel del mar
+                 vocabulary: ccmm_global.castellano
+               - term: presión a nivel do mar
+                 vocabulary: ccmm_global.galego
+               - term: Pressure at sea level
+                 vocabulary: ccmm_global.english
+               - term: air_pressure_at_mean_sea_level
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(Pa)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage
+         - name: rainfall
+           description: Cantidad de precipitación
+           names: 
+               - term: precipitación
+                 vocabulary: ccmm_global.castellano
+               - term: precipitación
+                 vocabulary: ccmm_global.galego
+               - term: Precipitation
+                 vocabulary: ccmm_global.english
+               - term: precipitation_amount
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(kg/m2)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage
+         - name: relative_humidity
+           description: Humedad relativa
+           names: 
+               - term: humedad relativa
+                 vocabulary: ccmm_global.castellano
+               - term: humidade relativa
+                 vocabulary: ccmm_global.galego
+               - term: relative humidity
+                 vocabulary: ccmm_global.english
+               - term: relative_humidity
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(%)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage
+         - name: snowfall_amount
+           description: Cantidad de nieve caída
+           names: 
+               - term: nieve
+                 vocabulary: ccmm_global.castellano
+               - term: neve
+                 vocabulary: ccmm_global.galego
+               - term: Snoowfall
+                 vocabulary: ccmm_global.english
+               - term: stratiform_snowfall_amount
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(kg/m2)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage
+         - name: snow_level
+           description: Grosor del nivel de nieve
+           names: 
+               - term: grosor de la nieve
+                 vocabulary: ccmm_global.castellano
+               - term: grosor da neve
+                 vocabulary: ccmm_global.galego
+               - term: Snow level
+                 vocabulary: ccmm_global.english
+               - term: surface_snow_thickness
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(m)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage
+         - name: sea_surface_temperature
+           description: Temperatura de la superficie del mar
+           names: 
+               - term: temperatura del mar
+                 vocabulary: ccmm_global.castellano
+               - term: temperatura do mar
+                 vocabulary: ccmm_global.galego
+               - term: Sea surface temperature
+                 vocabulary: ccmm_global.english
+               - term: sea_surface_temperature
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(K)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage
+         - name: air_temperature
+           description: Temperatura del aire
+           names: 
+               - term: temperatura del aire
+                 vocabulary: ccmm_global.castellano
+               - term: temperatura do aire
+                 vocabulary: ccmm_global.galego
+               - term: Air temperature
+                 vocabulary: ccmm_global.english
+               - term: air_temperature
+                 vocabulary: ccmm_global.cf_standard_names
+           data_type: measure(K)
+           repeated: false
+           sampling_time_type: instant
+           temporal_scope: continuous_coverage
+           sampling_geometry_type: point
+           geospatial_scope: continuous_coverage

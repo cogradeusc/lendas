@@ -1,0 +1,1287 @@
+{
+  "schema": "ctd_intecmar",
+  "enumeration_data_types": [
+    {
+      "name": "validation_flag_type",
+      "description": "Defined los posibles valores de los flags de validación",
+      "versions": [
+        {
+          "version": "default",
+          "values": [
+            {
+              "vocabulary": "ccmm_global.castellano",
+              "terms": [
+                "No control de Calidad",
+                "Valor bueno",
+                "Probablemente valor bueno",
+                "Probablemente valor malo",
+                "Valor malo",
+                "Valor cambiado",
+                "Valor bueno sin recalibración",
+                "Valor perdido"
+              ]
+            },
+            {
+              "vocabulary": "ccmm_global.galego",
+              "terms": [
+                "Non control de Calidade",
+                "Valor bo",
+                "Probablemente valor bo",
+                "Probablemente valor malo",
+                "Valor malo",
+                "Valor cambiado",
+                "Valor bo sen recalibración",
+                "Valor perdido"
+              ]
+            },
+            {
+              "vocabulary": "ccmm_global.english",
+              "terms": [
+                "NoQualityControl",
+                "GoodValue",
+                "ProbablyGoodValue",
+                "ProbablyBadValue",
+                "ChangedValue",
+                "BadValue",
+                "GoodValueWithoutRecalibration",
+                "LostValue"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "complex_data_types": [
+    {
+      "name": "validation_flags_type",
+      "description": "Flags de validación para todas las propiedades.",
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "temperatura_ITS90",
+              "description": "Flag de la temperatura del agua",
+              "names": [
+                {
+                  "term": "temperatura",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "temperatura",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "temperature",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "sea_water_temperature",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "salinidad",
+              "description": "Flag de la salinidad del agua",
+              "names": [
+                {
+                  "term": "salinidad",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "salinidade",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "salinity",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "sea_water_salinity",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "presion",
+              "description": "Flag de la presión de la columna de agua",
+              "names": [
+                {
+                  "term": "presión",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "presión",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "pressure",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "sea_water_pressure",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "ph",
+              "description": "Flag del nivel de ph",
+              "names": [
+                {
+                  "term": "ph",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "ph",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "ph",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "sea_water_ph_reported_on_total_scale",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "oxigeno",
+              "description": "Flag del nivel de oxígueno",
+              "names": [
+                {
+                  "term": "oxígeno",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "oxíxeno",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "oxygen",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "volume_fraction_of_oxygen_in_sea_water",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "transmitancia",
+              "description": "Flag de la transmitacia",
+              "names": [
+                {
+                  "term": "transmitacia",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "transmitacia",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "transmittance",
+                  "vocabulary": "ccmm_global.english"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "irradiancia",
+              "description": "Flag de la irradiancia",
+              "names": [
+                {
+                  "term": "irradiancia",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "irradiancia",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "irradiance",
+                  "vocabulary": "ccmm_global.english"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "flourescencia_uv",
+              "description": "Flag de la flourescencia_uv",
+              "names": [
+                {
+                  "term": "flourescencia_uv",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "flourescencia_uv",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "fluorescence_uv",
+                  "vocabulary": "ccmm_global.english"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "flourescencia",
+              "description": "Flag de la flourescencia",
+              "names": [
+                {
+                  "term": "flourescencia",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "flourescencia",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "fluorescence",
+                  "vocabulary": "ccmm_global.english"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "densidad",
+              "description": "Flag de la densidad",
+              "names": [
+                {
+                  "term": "densidad",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "densidade",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "density",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "sea_water_density",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "profundidad",
+              "description": "Flag de la profundidad",
+              "names": [
+                {
+                  "term": "profundidad",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "profundidade",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "depth",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "depth",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "temperatura_ITS68",
+              "description": "Flag de la temperatura ITS68",
+              "names": [
+                {
+                  "term": "temperatura_ITS68",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "temperatura_ITS68",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "temperature_ITS68",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "sea_water_temperature",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            },
+            {
+              "name": "conductividad",
+              "description": "Flag de la conductividad",
+              "names": [
+                {
+                  "term": "conductividad",
+                  "vocabulary": "ccmm_global.castellano"
+                },
+                {
+                  "term": "conductividade",
+                  "vocabulary": "ccmm_global.galego"
+                },
+                {
+                  "term": "conductivity",
+                  "vocabulary": "ccmm_global.english"
+                },
+                {
+                  "term": "sea_water_electrical_conductivity",
+                  "vocabulary": "ccmm_global.cf_standard_names"
+                }
+              ],
+              "data_type": "validation_flag_type",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sensor",
+      "description": "Metadatos almacenados para cada uno de los sensores.",
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "id",
+              "description": "Identificador del sensor",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "nombre",
+              "description": "Nombre del sensor",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "numero_serie",
+              "description": "Número de serie del sensor",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "fabricante",
+              "description": "Fabricante del sensor",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "fecha_recepcion",
+              "description": "Fecha de recepción del sensor",
+              "data_type": "date",
+              "repeated": false
+            },
+            {
+              "name": "fecha_servicio",
+              "description": "Fecha de puesta en servicio del sensor",
+              "data_type": "date",
+              "repeated": false
+            },
+            {
+              "name": "periodo_calibracion",
+              "description": "Período entre calibraciones",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "periodo_mantenimiento",
+              "description": "Período entre mantenimientos",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "rango_medida",
+              "description": "Rango de medida",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "rango_calibracion",
+              "description": "Rango de calibración",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "division_escala",
+              "description": "Escala de la medida",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "pnt_calibracion",
+              "description": "Punto de calibración",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "pnt_mantenimiento",
+              "description": "Punto de mantenimiento",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "equipo",
+      "description": "Metadatos asociados al hardware de dispositivo ctd",
+      "versions": [
+        {
+          "version": "default",
+          "fields": [
+            {
+              "name": "id",
+              "description": "Identificador del dispositivo",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "nombre",
+              "description": "Nombre del dispositivo",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "fabricante",
+              "description": "Fabricante del dispositivo",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "fecha_recepcion",
+              "description": "Fecha de recepción",
+              "data_type": "date",
+              "repeated": false
+            },
+            {
+              "name": "fecha_servicio",
+              "description": "Fecha de puesta en servicio",
+              "data_type": "date",
+              "repeated": false
+            },
+            {
+              "name": "periodo_mantenimiento",
+              "description": "Período de mantenimiento",
+              "data_type": "integer",
+              "repeated": false
+            },
+            {
+              "name": "pnt_mantenimiento",
+              "description": "Punto de mantenimiento",
+              "data_type": "text",
+              "repeated": false
+            },
+            {
+              "name": "responsable",
+              "description": "responsable",
+              "data_type": "text",
+              "repeated": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "feature_types": [
+    {
+      "name": "ria",
+      "description": "Representa a cada ría en la que se toman medidas.",
+      "names": [
+        {
+          "term": "Ría",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "term": "Ría",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "term": "Estuary",
+          "vocabulary": "ccmm_global.english"
+        }
+      ],
+      "properties": [
+        {
+          "name": "nombre",
+          "description": "Nombre de la ría",
+          "names": [
+            {
+              "term": "nombre",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "nome",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "name",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "nombre_corto",
+          "description": "Nombre corto de la ría",
+          "names": [
+            {
+              "term": "nombre corto",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "nome curto",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "short name",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "geo",
+          "description": "Geometría de la ría",
+          "names": [
+            {
+              "term": "geometría",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "xeometría",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "geometry",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "geometry(Polygon,4326)",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "zona",
+          "description": "Zona a la que pertenece la ría",
+          "names": [
+            {
+              "term": "zona",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "zona",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "zone",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ]
+    }
+  ],
+  "spatial_sampling_feature_types": [
+    {
+      "name": "estacion",
+      "description": "Punto dentro de la ría en el que se realizan perfiles",
+      "names": [
+        {
+          "term": "estación",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "term": "estación",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "term": "station",
+          "vocabulary": "ccmm_global.english"
+        }
+      ],
+      "properties": [
+        {
+          "name": "codigo",
+          "description": "Código de la estación",
+          "names": [
+            {
+              "term": "codigo",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "codigo",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "code",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "nombre",
+          "description": "Nombre de la estación",
+          "names": [
+            {
+              "term": "nombre",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "nome",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "name",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "descripcion",
+          "description": "Descripción de la estación",
+          "names": [
+            {
+              "term": "descripción",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "descrición",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "description",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        }
+      ],
+      "sampled_feature_type": "ria",
+      "shape_type": "point",
+      "shape_crs": "EPSG:4326",
+      "height_type": "range",
+      "height_crs": "EPSG:5831"
+    }
+  ],
+  "process_types": [
+    {
+      "name": "configuracion_ctd",
+      "description": "Proceso que genera perfiles ctd en puntos concretos dentro de las rías gallegas.",
+      "names": [
+        {
+          "term": "configuración ctd",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "term": "configuración ctd",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "term": "ctd configuration",
+          "vocabulary": "ccmm_global.english"
+        }
+      ],
+      "properties": [
+        {
+          "name": "nombre",
+          "description": "Nombre del dispositivo ctd",
+          "names": [
+            {
+              "term": "nombre",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "nome",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "name",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "equipo",
+          "description": "Metadatos del hardware del ctd",
+          "names": [
+            {
+              "term": "equipo",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "equipo",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "equipment",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "equipo",
+          "repeated": false,
+          "scope": "feature"
+        },
+        {
+          "name": "sensores",
+          "description": "Metadatos de los sensores montados en el ctd",
+          "names": [
+            {
+              "term": "sensores",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "sensores",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "sensors",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "sensor",
+          "repeated": true,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "barco",
+          "description": "Nombre del barco en el que se instala el ctd",
+          "names": [
+            {
+              "term": "barco",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "barco",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "ship",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        },
+        {
+          "name": "observaciones",
+          "description": "Comentarios sobre el ctd en un determinado período",
+          "names": [
+            {
+              "term": "observaciones",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "observacións",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "comments",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "text",
+          "repeated": false,
+          "scope": "valid_time_period"
+        }
+      ],
+      "metadata_language": [
+        "spa"
+      ],
+      "metadata_contact": [
+        {
+          "organisation_name": "Intecmar",
+          "electronic_mail_address": "intecmar@xunta.gal",
+          "role": "resourceProvider"
+        }
+      ],
+      "metadata_date_stamp": "2025-03-19T00:00:00.000Z",
+      "title": "Perfiles CTD generados por las camapañas de observación de Intecmar",
+      "abstract": "En este conjunto de datos se almacenan los datos de los perfiles CTD que genera intecmar en las principales rías gallegas. Con una periodicidad aproximadamente semanal, salen barcos a las rías para realizar perfiles CTD en un conjunto específico de localizaciones (estaciones).",
+      "identifier": "Intecmar-ctd",
+      "point_of_contact": [
+        {
+          "organisation_name": "Intecmar",
+          "electronic_mail_address": "intecmar@xunta.gal",
+          "role": "resourceProvider"
+        }
+      ],
+      "keywords": [
+        {
+          "keyword": "perfiles ctd",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "keyword": "perfiles ctd",
+          "vocabulary": "ccmm_global.galego"
+        },
+        {
+          "keyword": "ctd profiles",
+          "vocabulary": "ccmm_global.english"
+        },
+        {
+          "keyword": "galicia"
+        },
+        {
+          "keyword": "oceano",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "keyword": "ocean",
+          "vocabulary": "ccmm_global.english"
+        },
+        {
+          "keyword": "mar",
+          "vocabulary": "ccmm_global.castellano"
+        },
+        {
+          "keyword": "sea",
+          "vocabulary": "ccmm_global.english"
+        }
+      ],
+      "specific_usage": "Not reported.",
+      "user_contact": [
+        {
+          "organisation_name": "intecmar",
+          "electronic_mail_address": "intecmar@xunta.gal",
+          "role": "resourceProvider"
+        }
+      ],
+      "use_limitation": "No se identifican limitaciones en el uso de estos datos.",
+      "spatial_representation_type": "vector",
+      "spatial_resolution": [
+        5000
+      ],
+      "language": [
+        "spa"
+      ],
+      "topic_category": [
+        "environment",
+        "geoscientificInformation",
+        "oceans"
+      ],
+      "result_time_type": "instant",
+      "phenomenon_time_type": "result_time",
+      "shared_feature_of_interest_type": "estacion",
+      "observed_properties": [
+        {
+          "name": "temperatura_ITS90",
+          "description": "Temperatura del agua",
+          "names": [
+            {
+              "term": "temperatura",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "temperatura",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "temperature",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_temperature",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(ºC)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "salinidad",
+          "description": "Salinidad del agua",
+          "names": [
+            {
+              "term": "salinidad",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "salinidade",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "salinity",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_salinity",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(null)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "presion",
+          "description": "Presión del agua",
+          "names": [
+            {
+              "term": "presión",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "presión",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "pressure",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_pressure",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(db)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "ph",
+          "description": "Ph del agua",
+          "names": [
+            {
+              "term": "ph",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "ph",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "ph",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_ph_reported_on_total_scale",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(null)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "oxigeno",
+          "description": "Nivel de oxígeno del agua",
+          "names": [
+            {
+              "term": "oxígeno",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "oxíxeno",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "oxygen",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "volume_fraction_of_oxygen_in_sea_water",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(ml/l)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "transmitancia",
+          "description": "transmitacia del agua",
+          "names": [
+            {
+              "term": "transmitacia",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "transmitacia",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "transmittance",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "measure(%)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "irradiancia",
+          "description": "Irradiancia del agua",
+          "names": [
+            {
+              "term": "irradiancia",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "irradiancia",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "irradiance",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "measure(quanta/cm2sec)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "flourescencia_uv",
+          "description": "flourescencia_uv del agua",
+          "names": [
+            {
+              "term": "flourescencia_uv",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "flourescencia_uv",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "fluorescence_uv",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "measure(ug/l)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "flourescencia",
+          "description": "flourescencia del agua",
+          "names": [
+            {
+              "term": "flourescencia",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "flourescencia",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "fluorescence",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "measure(mg/m3)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "densidad",
+          "description": "Densidad del agua",
+          "names": [
+            {
+              "term": "densidad",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "densidad",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "density",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_density",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(kg/m3)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "profundidad",
+          "description": "Profundidad en la columna de agua",
+          "names": [
+            {
+              "term": "profundidad",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "profundidad",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "depth",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "depth",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(m)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "temperatura_ITS68",
+          "description": "temperatura ITS68",
+          "names": [
+            {
+              "term": "temperatura_ITS68",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "temperatura_ITS68",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "temperature_ITS68",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_temperature",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(ºC)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "conductividad",
+          "description": "conductividad del agua",
+          "names": [
+            {
+              "term": "conductividad",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "conductividad",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "conductivity",
+              "vocabulary": "ccmm_global.english"
+            },
+            {
+              "term": "sea_water_electrical_conductivity",
+              "vocabulary": "ccmm_global.cf_standard_names"
+            }
+          ],
+          "data_type": "measure(Siemens/m)",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        },
+        {
+          "name": "validacion",
+          "description": "Flags de validación de las propiedades medidas",
+          "names": [
+            {
+              "term": "flags de validación",
+              "vocabulary": "ccmm_global.castellano"
+            },
+            {
+              "term": "flags de validación",
+              "vocabulary": "ccmm_global.galego"
+            },
+            {
+              "term": "validation flags",
+              "vocabulary": "ccmm_global.english"
+            }
+          ],
+          "data_type": "validation_flags_type",
+          "repeated": false,
+          "temporal_scope": "observation",
+          "geospatial_scope": "observation",
+          "height_scope": "discrete_coverage",
+          "sampling_height_type": "point"
+        }
+      ]
+    }
+  ]
+}
